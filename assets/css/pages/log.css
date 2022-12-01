@@ -1,0 +1,52 @@
+body{
+    background-color:rgb(255, 255, 255);
+}
+#auth{
+    height:100%;
+    overflow-x:hidden;
+}
+#auth #auth-right{
+    /* background:url(../../../assets/images/portal.png),
+    linear-gradient(90deg,#2d499d,#3f5491);
+    height:100%; */
+
+    background-image: url(img/bg-login.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+    #auth #auth-left{
+        padding:5rem 5rem;
+    }
+    #auth #auth-left .auth-title{
+        font-size:1rem;
+        margin-bottom:1rem;
+        margin-top: -3rem;
+    }
+    #auth #auth-left .auth-subtitle{
+        color:#a8aebb;
+        font-size:1rem;
+        line-height:2.5rem}
+    #auth #auth-left .auth-logo{
+        margin-bottom:4.5rem;
+    }
+    #auth #auth-left .auth-logo img{
+        height:6rem;
+        margin-top: -0.8rem;
+    }
+    @media screen and (max-width:767px)
+    {
+        #auth #auth-left{
+            padding:5rem;
+        }
+    }
+    @media screen and (max-width:576px)
+    {
+        #auth #auth-left{
+            padding:5rem 3rem;
+        }
+    }
+    body.theme-dark #auth-right{
+        background:url(../../../assets/images/4853433.png?45649b87e0b3f50bfa1372c6cdb4595f)
+        ,linear-gradient(90deg,#2d499d,#3f5491);
+    }
