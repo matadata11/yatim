@@ -153,18 +153,18 @@ class User extends Admin_Controller {
 				$config['useragent'] 	= 'Codeigniter';
 				$config['protocol']		= "smtp";
 				$config['mailtype']		= "html";
-				$config['smtp_host']	= "mail.bebascoding.com"; //pengaturan smtp
+				$config['smtp_host']	= "mail.notfound.id"; //pengaturan smtp
 				$config['smtp_port']	= "587";
 				$config['smtp_timeout']	= "400";
-				$config['smtp_user']	= "halo@bebascoding.com"; // isi dengan email kamu
-				$config['smtp_pass']	= "@pangestu2212"; // isi dengan password kamu
+				$config['smtp_user']	= "no-reply@notfound.id"; // isi dengan email kamu
+				$config['smtp_pass']	= "@matadata3010"; // isi dengan password kamu
 				$config['crlf']			= "\r\n";
 				$config['newline']		= "\r\n";
 				$config['wordwrap'] 	= TRUE;
 			//memanggil library email dan set konfigurasi untuk pengiriman email
 
 			
-			$htmlContent = '<div><a style="text-decoration: none;" href=' . base_url('admin/user/verification/' . $encrypted_id) . '> Verifikasi</a></div>';
+			// $htmlContent = 'https://sisy.notfound.id';
 
 
 			// $htmlContent2 = '<div> <img src=' . base_url('login.svg') . '> alt="logo" width="180" class="mb-1 mt-2"></div>';
@@ -175,20 +175,22 @@ class User extends Admin_Controller {
 			//konfigurasi pengiriman
 			$this->email->from($config['smtp_user']);
 			$this->email->to($email);
-			$this->email->subject("Verifikasi Akun Portal. Bidang Pembinaan SMK Dinas Pendidikan Aceh");
-			$this->email->message($htmlContent);
+			$this->email->subject("Verifikasi Akun Sisy Cloud. Notfound Indonesia");
+			// $this->email->message($htmlContent);
 			$this->email->message(
 			// " $htmlContent2 <br>
 			"
-			Selamat Bergabung, berikut tercantum data akun anda. <br>
+			Halo $fullname<br>
+			Berikut kami lampirkan data akun anda. <br> <br>
 			Nama : $fullname <br>
 			Email: $email <br>
 			Password: $password <br><br>
-			url : https://portal.bebascoding.com
+			url : https://sisy.notfound.id
 			<br><br><br><br>
-			developer of TIM IT PSMK"
+			Tim Pengembang Sisy Cloud <br>
+			#Notfound_Indonesia <br> #Matadata_Technologi"
+			// <br> <br> <button class='btn btn-block btn-md btn-primary'>$htmlContent</button>"
 			// <br>Untuk Melakukan Login Silahkan Verifikasi Akun Anda Dengan Cara Klik Tautan Dibawah Ini.
-			// <br> <button class='btn btn-block btn-md btn-primary'>$htmlContent</button> 
 		);
 
 
@@ -196,7 +198,7 @@ class User extends Admin_Controller {
 			echo $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible"id="notifications">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 		<h4><i class="icon fa fa-check"></i> Sukses!</h4>
-		Email Terkirim ke <b Style="text-transform: capitalize;">' . $fullname . '</b> email <b">' . $email . '</>.
+		Email Terkirim ke <b Style="text-transform: capitalize;">' . $fullname . '</b> email <b">' . $email . '</br>.
 		</div>');
 		} else {
 			echo $this->session->set_flashdata('msg', '<div class="alert alert-warning alert-dismissible"id="notifications">
