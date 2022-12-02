@@ -197,13 +197,13 @@ class User extends Admin_Controller {
 		if ($this->email->send()) {
 			echo $this->session->set_flashdata('msg', '<div class="alert alert-success alert-dismissible"id="notifications">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<h4><i class="icon fa fa-check"></i> Sukses!</h4>
+		<h4>Sukses!</h4>
 		Email Terkirim ke <b Style="text-transform: capitalize;">' . $fullname . '</b> email <b">' . $email . '</br>.
 		</div>');
 		} else {
 			echo $this->session->set_flashdata('msg', '<div class="alert alert-warning alert-dismissible"id="notifications">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<h4><i class="icon fa fa-check"></i> Sukses!</h4>
+		<h4>Sukses!</h4>
 		Email Gagal Terkirim ke <b Style="text-transform: capitalize;">' . $fullname . '</b> email <b>' . $email . '</b>.
 		</div>');
 			}

@@ -40,7 +40,7 @@
 			</li>
 			<?php } ?>
 
-			<?php if ($this->session->userdata('level') == 'Admin' ) { ?>
+			<!-- <?php if ($this->session->userdata('level') == 'Admin' ) { ?>
 			<li class='treeview'>
 				<a href='#'><i class="fas fa-cog side-menu-icon fa-fw"></i><span> Data Master </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 				<ul class='treeview-menu'>
@@ -48,18 +48,32 @@
 					<li><a href='gtk'><i class='fas fa-angle-double-right fa-fw'></i> <span> Data Gtk</span></a></li>
 				</ul>
 			</li>
-			<?php } ?>
+			<?php } ?> -->
 
 			<!-- sekolah -->
 			
-			<?php if ($this->session->userdata('level') == 'Ops' OR $this->session->userdata('level') == 'Super' ) { ?>
+			<?php if ($this->session->userdata('level') == 'Ops' OR $this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' ) { ?>
 
 			<li class='treeview'>
 				<a href='#'><i class="fas fa-server side-menu-icon fa-fw"></i><span> Master Sekolah </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 				<ul class='treeview-menu'>
 					<li><a href='master_siswa'><i class='fas fa-angle-double-right fa-fw'></i> <span> Input Siswa</span></a></li>
+					<?php if ( $this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' ) { ?>
+					<li><a href='verval_inputan'><i class='fas fa-angle-double-right fa-fw'></i> <span> Verval Siswa</span></a></li>
+					<?php } ?>
 				</ul>
 			</li>
+			<?php } ?>
+
+			<?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin') { ?>
+			<li class="header">LAPORAN</li>
+			<li class='treeview'>
+				<a href='#'><i class="fas fa-print side-menu-icon fa-fw"></i><span> Laporan </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
+				<ul class='treeview-menu'>
+					<li><a href='master_laporan'><i class='fas fa-angle-double-right fa-fw'></i> <span> Verval Siswa</span></a></li> 
+				</ul>
+			</li>
+
 			<?php } ?>
 
 

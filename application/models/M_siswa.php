@@ -126,13 +126,13 @@ class M_siswa extends CI_Model {
     // cari data
     public function cariOrang()
     {
-        $query = $this->db->where('nisn', $this->input->post('nisn'));
-        $query = $this->db->where('atas_nama', $this->input->post('atas_nama'));
-        $query = $this->db->where('no_rek', $this->input->post('no_rek'));
-        $query = $this->db->select('*');
-		$query = $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id_provinsi = dt_siswa.provinsi_id');
-		$query = $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id_kabupaten = dt_siswa.kabupaten_id');
-        return $this->db->get($this->_table)->result_array();
+        $this->db->where('nisn', $this->input->post('nisn'));
+        $this->db->where('atas_nama', $this->input->post('atas_nama'));
+        $this->db->where('no_rek', $this->input->post('no_rek'));
+        $this->db->select('*');
+		$this->db->join('wilayah_provinsi', 'wilayah_provinsi.id_provinsi = dt_siswa.provinsi_id');
+		$this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id_kabupaten = dt_siswa.kabupaten_id');
+        return $this->db->get($this->_table)->result();
     }
 
 }

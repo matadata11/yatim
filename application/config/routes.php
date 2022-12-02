@@ -50,17 +50,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+// master Laporan
+$route['master_laporan']                = 'admin/Master_laporan';
+$route['export_pdf']                    = 'report/Data_siswa/pdf';
+$route['export_excel']                  = 'report/Data_siswa/export_excel';
+
+$route['verval_inputan']                = 'admin/Verval_inputan';
+$route['cari-siswa']                	= 'admin/Verval_inputan/hasil';
+$route['verifikasi']                	= 'admin/Master_siswa/verifikasi';
+
 // master inputan siswa
 $route['master_siswa']                  = 'admin/Master_siswa';
-$route['verval-inputan']                = 'admin/Master_siswa/verval_inbputan';
 $route['add-inputan']                   = 'admin/Master_siswa/store';
 $route['lock-inputan']                  = 'admin/Master_siswa/lock';
 $route['locka-inputan']                 = 'admin/Master_siswa/locka';
 $route['edit-inputan']                  = 'admin/Master_siswa/updated';
 $route['import-inputan']                = 'admin/Master_siswa/import_excel';
 $route['remove-inputan/(:num)']         = 'admin/Master_siswa/deleted';
-$route['cari-siswa']                	= 'admin/Master_siswa/hasil';
-$route['verifikasi']                	= 'admin/Master_siswa/verifikasi';
 
 $route['perbaharui']                    = 'admin/Perbaharui';
 $route['edit-akun']                     = 'admin/Perbaharui/update';

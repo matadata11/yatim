@@ -52,24 +52,8 @@ class Master_siswa extends Admin_Controller {
         $this->load->view('backend/main', $this->vars);
     }
 
-	public function verval_inbputan()
-	{
-		$this->vars['siswa']	= $this->siswa->getSiswanull();
-		
-		$this->vars['title']    = 'Verval Form Inputan';
-        $this->vars['content']  = 'master/verval_siswa';
-        $this->load->view('backend/main', $this->vars);
-	}
 
-	public function hasil()
-	{
-
-        $this->vars['cari'] 		= $this->siswa->cariOrang();
-
-        $this->vars['title']    	= 'Verval Form Inputan';
-        $this->vars['content']  	= 'master/cari_siswa';
-        $this->load->view('backend/main', $this->vars);
-    }
+	
 
 
     // tambah siswa
@@ -337,7 +321,7 @@ class Master_siswa extends Admin_Controller {
 			} else {
 				$this->session->set_flashdata('nofalse', 'Data Gagal Diupdate.');
 			}
-			redirect('verval-inputan');
+			redirect('verval_inputan');
 		}
 	}
 

@@ -5,7 +5,7 @@
                     <div class="col-md-12">
                         <div class="box box-solid">
                             <div class="box-header whith-border">
-                                <marquee width="100%" direction="left" style='color:#000000;'>Sistem Pendataan Kehadiran Guru dan Tendik Pada Cabang Dinas Pendidikan wilayah Kabupaten atau Kota.</marquee>
+                                <marquee width="100%" direction="left" style='color:#000000;'>Selamat Datang pada Sistem Pendataan Beasiswa Anak Yatim Piatu pada Bidang Pembinaan Sekolah Menengah Kejuruan Dinas Pendidikan Aceh.</marquee>
                             </div>
                         </div>
                     </div>
