@@ -10,6 +10,7 @@
             <div class='box box-solid'>
                 <div class='box-header with-border'>
                     <h3 class='box-title'><i class='fas fa-print side-menu-icon fa-fw'></i> Data Valid</h3>
+                    <?php if ($this->session->userdata('level') == 'Super') { ?>
                     <div class='box-tools pull-right'>
                         <a href="<?=site_url('export_pdf');?>">
                             <button class='btn btn-sm btn-flat btn-danger' ><i class='fas fa-file-pdf'></i> Export Pdf</button>
@@ -18,6 +19,7 @@
                             <button class='btn btn-sm btn-flat btn-success'><i class='fa fa-file-excel'></i> Export Excel</button>
                         </a>
                     </div>
+                    <?php } ?>
                 </div><!-- /.box-header -->
                 <div class="card-body table-responsive pengguna">
                     <table id='example1' class='table table-bordered table-striped '>
@@ -60,9 +62,9 @@
                                     <td><?=$row['atas_nama']?></td>
                                     <td><?=$row['no_rek']?></td>
                                     <td><?=$row['nm_bank']?></td>
-                                    <td><?=$row['nm_kabupaten']?></td>
+                                    <td><?=$row['nama_kabupaten']?></td>
                                     <td>
-                                    <span class="badge bg-success"><?=$row['status']?></span>
+                                    <span class="badge" style="background:green;"><?=$row['status']?></span>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

@@ -42,7 +42,7 @@
                                     if($usr['is_active'] == '1'){
                                         echo "<botton class='btn btn-xs btn-primary'>Verifikasi</botton>";
                                     }elseif($usr['is_active'] == '0'){
-                                        echo "<botton class='btn btn-xs btn-danger'>Belum Verifikasi</botton>";
+                                        echo "<botton class='btn btn-xs btn-danger'>Tidak Aktif</botton>";
                                     }
                                     ?></td>
                                     <td><?=$usr['created_at']?></td>
@@ -69,7 +69,7 @@
                                     if($usr['is_active'] == '1'){
                                         echo "<botton class='btn btn-xs btn-primary'>Verifikasi</botton>";
                                     }elseif($usr['is_active'] == '0'){
-                                        echo "<botton class='btn btn-xs btn-danger'>Belum Verifikasi</botton>";
+                                        echo "<botton class='btn btn-xs btn-danger'>Tidak Aktif</botton>";
                                     }
                                     ?></td>
                                     <td><?=$usr['created_at']?></td>

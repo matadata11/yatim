@@ -221,13 +221,13 @@
             </div>
             <div class="card-body table-responsive pengguna">
                 <table id='example2' class='table  table-striped '>
-                    <p>Cloud AbsenKU - untuk pendataan Guru dan Tendik Cabang Dinas Wilayah Kabupaten atau Kota</p>
+                    <p>Sisy - untuk pendataan Beasiswa Anak Yatim dan Piatu pada Bidang Pembinaan Sekolah Menengah Kejuruan</p>
                     <tr>
                         <th>Developer</th><td>:</td><td>Dwi Satria Pangestu, A.Md.Kom (Programmer) <br> Imannudin, S.Kom (Administrasi) <br> Yasir (Monitoring) </td>
                     </tr>
 
                     <tr>
-                        <th>Core</th><td>:</td><td>Codeigniter Versi 3.1.11</td>
+                        <th>Core</th><td>:</td><td>Codeigniter Versi 3.1.13</td>
                     </tr>
 
                     <tr>

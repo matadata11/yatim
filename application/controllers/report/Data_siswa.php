@@ -252,7 +252,7 @@ class Data_siswa extends CI_Controller {
 		$excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->nominal);
 		$excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $data->no_hp);
 		$excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $data->kelas);
-		$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $data->nm_kabupaten  );
+		$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $data->nama_kabupaten  );
 		
 		// Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
 		$excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
