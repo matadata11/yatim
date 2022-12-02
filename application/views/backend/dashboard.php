@@ -82,7 +82,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div id='infoweb' style="margin-bottom: 10px;">
-                        <p style="margin-bottom: -3px;"><b>POSKO NOT FOUND INDONESIA</b></p>
+                        <p style="margin-bottom: -3px;"><b>SISY CLOUD <small class="text-muted">NOTFOUND INDONESIA</small></b></p>
                         <b>Internal Teknis - Jangan Dishare Ke Publik</b>
 
                         </div>

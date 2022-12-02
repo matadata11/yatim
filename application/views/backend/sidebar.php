@@ -85,7 +85,7 @@
 			<?php if ($this->session->userdata('level') == 'Super') { ?>
 
 				<!-- pengumuman -->
-				<li class='treeview'><a href='notif'><i class="fas fa-bell side-menu-icon fa-fw"></i> <span> Pemberitahuan</span></a></li>
+				<!-- <li class='treeview'><a href='notif'><i class="fas fa-bell side-menu-icon fa-fw"></i> <span> Pemberitahuan</span></a></li> -->
 
 				<li class='treeview'><a href='pengumuman'><i class="fas fa-bullhorn side-menu-icon fa-fw"></i> <span> Pengumuman</span></a></li>
 				<!-- end -->

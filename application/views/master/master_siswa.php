@@ -729,6 +729,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- Import Data Menggunakan Excel -->
+<div class="modal fade" id="upload" data-backdrop="static" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Import Data GTK</h5>
+            </div>
+            <div class="modal-body">
+                <div class="my-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="text-center">Silahkan download template data berikut</p>
+                            <a href="<?= site_url('assets/excel/format_inport_siswa.xlsx') ?>" download class="btn btn-block btn-primary"><i class="fas fa-download"></i> Download Format</a><br>
+                        </div>
+                    </div>
+                </div>
+                <form method="post" action="<?= site_url('import-inputan') ?>" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Pilih File Excel</label>
+                        <input type="hidden" class="form-control" name="admin_input" value="<?= $this->session->userdata('fullname'); ?>">
+                        <input type="file" class="form-control" name="dataexcel">
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check"></i> Import</button>
+                        <button data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Tutup</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
         <?php endforeach; ?>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
