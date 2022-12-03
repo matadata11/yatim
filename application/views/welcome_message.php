@@ -18,7 +18,7 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <div class="auth-logo" style="margin-top:-2rem;">
+                    <div class="auth-logo" style="margin-top:1rem;">
                         <a href="<?=site_url('/');?>"><img src="<?=__img('logo/sisy.png');?>" alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Sistem Informasi Siswa Yatim</h1>

@@ -51,7 +51,7 @@ if (isset($_GET['pg'])) {
 		echo "</div>";
 	} elseif ($pg == 'pengumuman') {
 		$logC = 0;
-		echo "<ul class='timeline'><li class='time-label'><span class='bg-blue'>- Terbaru -</span></li>";
+		echo "<ul class='timeline'><li class='time-label' style='margin-top:5px;margin-left:5px;'><span class='bg-blue'>- Terbaru -</span></li>";
 		$logQ = mysqli_query($koneksi, "SELECT * FROM mt_pengumuman ORDER BY date DESC");
 
 		while ($log = mysqli_fetch_array($logQ)) {

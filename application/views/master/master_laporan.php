@@ -10,7 +10,7 @@
             <div class='box box-solid'>
                 <div class='box-header with-border'>
                     <h3 class='box-title'><i class='fas fa-print side-menu-icon fa-fw'></i> Data Valid</h3>
-                    <?php if ($this->session->userdata('level') == 'Super') { ?>
+                    <?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'HD') { ?>
                     <div class='box-tools pull-right'>
                         <a href="<?=site_url('export_pdf');?>">
                             <button class='btn btn-sm btn-flat btn-danger' ><i class='fas fa-file-pdf'></i> Export Pdf</button>

@@ -40,6 +40,7 @@ class Pengumuman extends Admin_Controller {
 					'judul'			    => $judul,
 					'type'	            => $type,
 					'text'	            => $text,
+					'date'    			=> date('Y-m-d H:i:s'),
 					'url_pengumuman'	=> md5($judul)
 				];
 			}

@@ -7,9 +7,17 @@
 	<div class="menu-header" style="margin-top:-20px;">
 		<ul>
 			<li>
+			<?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'HD' OR $this->session->userdata('level') == 'Ops' ) { ?>
 				<a style="color:#fff" href='dashboard' class="btn-logout">
 					<span class="fa fa-home fa-2x"></span><br>Dashboard
 				</a>
+			<?php } ?>
+
+			<?php if ($this->session->userdata('level') == 'Admin') { ?>
+				<a style="color:#fff" href='admin/dashboard' class="btn-logout">
+					<span class="fa fa-home fa-2x"></span><br>Dashboard
+				</a>
+			<?php } ?>
 			</li>
 			<!-- <li>
 				<a style="color:#fff" class="btn-logout" href="pengaturan">
@@ -29,7 +37,7 @@
 	<ul class=' sidebar-menu  tree data-widget=' tree>
 
 		<li class="header">MENU UTAMA</li>
-		<?php if ($this->session->userdata('level') == 'Super' ) { ?>
+		<?php if ($this->session->userdata('level') == 'Super') { ?>
 			<li class='treeview'>
 				<a href='#'><i class="fas fa-cog side-menu-icon fa-fw"></i><span> Data Master </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 				<ul class='treeview-menu'>
@@ -52,7 +60,7 @@
 
 			<!-- sekolah -->
 			
-			<?php if ($this->session->userdata('level') == 'Ops' OR $this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' ) { ?>
+			<?php if ($this->session->userdata('level') == 'Ops' OR $this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' OR $this->session->userdata('level') == 'HD' ) { ?>
 
 			<li class='treeview'>
 				<a href='#'><i class="fas fa-server side-menu-icon fa-fw"></i><span> Master Sekolah </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
@@ -60,12 +68,13 @@
 					<li><a href='master_siswa'><i class='fas fa-angle-double-right fa-fw'></i> <span> Input Siswa</span></a></li>
 					<?php if ( $this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' ) { ?>
 					<li><a href='verval_inputan'><i class='fas fa-angle-double-right fa-fw'></i> <span> Verval Siswa</span></a></li>
+					<!--<li><a href='pindah'><i class='fas fa-angle-double-right fa-fw'></i> <span> Pindah Siswa</span></a></li>-->
 					<?php } ?>
 				</ul>
 			</li>
 			<?php } ?>
 
-			<?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin') { ?>
+			<?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' OR $this->session->userdata('level') == 'HD') { ?>
 			<li class="header">LAPORAN</li>
 			<li class='treeview'>
 				<a href='#'><i class="fas fa-print side-menu-icon fa-fw"></i><span> Laporan </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
@@ -78,7 +87,7 @@
 
 
 		
-			<?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin') { ?>
+			<?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' OR $this->session->userdata('level') == 'HD') { ?>
 			<li class="header">PENGATURAN</li>
 			<?php } ?>
 
@@ -108,6 +117,34 @@
 				<li class='treeview'>
 					<a href='pengaturan'><i class="fas fa-tools side-menu-icon fa-fw"></i> <span>Pengaturan</span></a>
 				</li>
+			<?php } ?>
+			
+			<?php if ($this->session->userdata('level') == 'HD') { ?>
+
+				<!-- pengumuman -->
+				<!-- <li class='treeview'><a href='notif'><i class="fas fa-bell side-menu-icon fa-fw"></i> <span> Pemberitahuan</span></a></li> -->
+
+				<li class='treeview'><a href='pengumuman'><i class="fas fa-bullhorn side-menu-icon fa-fw"></i> <span> Pengumuman</span></a></li>
+				<!-- end -->
+
+				<li class='treeview'>
+					<a href='#'><i class="fas fa-users side-menu-icon fa-fw"></i><span> Master Pengguna </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
+					<ul class='treeview-menu'>
+						<li><a href='user'><i class='fas fa-angle-double-right fa-fw'></i> <span> Data Pengguna</span></a></li>
+					</ul>
+				</li>
+				<!-- pengguna -->
+				<!--<li class='treeview'>-->
+				<!--	<a href='#'><i class="fas fa-users side-menu-icon fa-fw"></i><span> Master Posko </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>-->
+				<!--	<ul class='treeview-menu'>-->
+				<!--		<li><a href='posko'><i class='fas fa-angle-double-right fa-fw'></i> <span> Data Posko</span></a></li>-->
+				<!--	</ul>-->
+				<!--</li>-->
+				<!-- end -->
+				
+				<!--<li class='treeview'>-->
+				<!--	<a href='pengaturan'><i class="fas fa-tools side-menu-icon fa-fw"></i> <span>Pengaturan</span></a>-->
+				<!--</li>-->
 			<?php } ?>
 
 

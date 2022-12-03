@@ -102,7 +102,7 @@
                         <form action='<?=site_url('add-user')?>' method='post'>
                             <div class="form-group">
                                 <label>Provinsi</label>
-                                <select name="provinsi_id" class="form-control" id="provinsi">
+                                <select name="provinsi_id" class="form-control js-example-basic-single" style="width:100%;" id="provinsi">
                                 <option>- Select Provinsi -</option>
                                 <?php 
                                     foreach($provinsi as $prov)
@@ -115,14 +115,14 @@
 
                             <div class="form-group">
                                 <label>Kabupaten</label>
-                                <select name="kabupaten_id" class="form-control" id="kabupaten">
+                                <select name="kabupaten_id" class="form-control js-example-basic-single" style="width:100%;" id="kabupaten">
                                 <option value=''>Select Kabupaten</option>
                             </select>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">Instansi <span class="text-danger">*</span></label>
-                                <select name="instansi_id" class="form-control" id="instansi">
+                                <select name="instansi_id" class="form-control js-example-basic-single" style="width:100%;" id="instansi">
                                     <option>Select Instansi</option>
                                 </select>
                             </div>
@@ -194,7 +194,7 @@
                         <form action='<?=site_url('add-user')?>' method='post'>
                             <div class="form-group">
                                 <label>Provinsi</label>
-                                <select name="provinsi_id" class="form-control" id="provinsi">
+                                <select name="provinsi_id"  class="form-control js-example-basic-single" style="width:100%;" id="provinsi">
                                 <option>- Select Provinsi -</option>
                                 <?php 
                                     foreach($provinsi as $prov)
@@ -207,14 +207,14 @@
 
                             <div class="form-group">
                                 <label>Kabupaten</label>
-                                <select name="kabupaten_id" class="form-control" id="kabupaten">
+                                <select name="kabupaten_id"  class="form-control js-example-basic-single" style="width:100%;" id="kabupaten">
                                 <option value=''>Select Kabupaten</option>
                             </select>
                             </div>
 
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">Instansi <span class="text-danger">*</span></label>
-                                <select name="instansi_id" class="form-control" id="instansi">
+                                <select name="instansi_id"  class="form-control js-example-basic-single" style="width:100%;" id="instansi">
                                     <option>Select Instansi</option>
                                 </select>
                             </div>

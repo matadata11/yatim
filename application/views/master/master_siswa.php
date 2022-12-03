@@ -117,6 +117,8 @@
                                     <!-- <a href="#locks<?=$row['id_siswa'];?>" data-bs-toggle="modal" style="color:#fff;"> <button class="btn btn-primary">  <i class="bi bi-unlock-fill"></i></button></a> -->
                                     <a href="#edit<?=$row['id_siswa'];?>" data-toggle="modal" style="color:#fff;"> <button class="btn btn-xs btn-warning" data-toggle="tooltip" data-placement="left" title="Edit Siswa">  <i class="fas fa-fw fa-edit"></i> Edit</button></a>
                                     <a href="#remove<?=$row['id_siswa'];?>" data-toggle="modal" style="color:#fff;"> <button class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="left" title="Hapus Siswa"> <i class="fas fa-fw fa-trash"></i> Hapus</button></a>
+
+                                    <a href="#pindah<?=$row['id_siswa'];?>" data-toggle="modal" style="color:#fff;"> <button class="btn btn-xs btn-info" data-toggle="tooltip" data-placement="left" title="Pindah Siswa"> <i class="fas fa-fw fa-share"></i> Pindah</button></a>
                                 <?php endif; ?>
 
                             </td>
@@ -153,6 +155,7 @@
                                     ?>
                                 </select>
                                 <input type="hidden" id="email-id-column" class="form-control" name="admin_input" value="<?=__session('fullname');?>" placeholder="ex. 201501015"/>
+                                <input type="hidden" id="email-id-column" class="form-control" name="admin_id" value="<?=__session('id_admin');?>" placeholder="ex. 201501015"/>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
@@ -762,6 +765,120 @@
         </div>
     </div>
 </div>
+        <?php endforeach; ?>
+
+        <!-- pindah -->
+        <?php foreach($siswa_admin as $row): ?>
+        <div class="modal fade" id="pindah<?=$row['id_siswa'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                    <form class="form" method="post" action="<?=site_url('edit-inputan')?>">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="first-name-column">Provinsi</label>
+                                        <select name="provinsi_id" class="form-control" id="provinsi1">
+                                            <option value="<?=$row['provinsi_id'];?>"><?=$row['nama'];?></option>
+                                            <?php 
+                                                foreach($provinsi as $prov)
+                                                {
+                                                    echo '<option value="'.$prov->id_provinsi.'">'.$prov->nama.'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="last-name-column">Kabupaten</label>
+                                        <select name="kabupaten_id" class="form-control" id="kabupaten1">
+                                        <option value=''>Select Kabupaten</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="font-size-h6 font-weight-bolder text-dark">Sekolah <span class="text-danger">*</span></label>
+                                        <select name="nm_sekolah"  class="form-control" style="width:100%;" id="sekolah1">
+                                            <option>Select Sekolah</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="font-size-h6 font-weight-bolder text-dark">Sekolah <span class="text-danger">*</span></label>
+                                        <select name="admin_input"  class="form-control" style="width:100%;" id="siswa1">
+                                            <option>Select Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="country-floating">Nama Siswa</label>
+                                        <input type="hidden" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="id_siswa" value="<?=$row['id_siswa'];?>"/>
+                                        <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" value="<?=$row['nm_siswa'];?>"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="company-column">Kelas</label>
+                                        <select name="kelas" id="first-name-column" class="form-control">
+                                        <option value="<?=$row['kelas'];?>"><?=$row['kelas'];?></option>
+                                        <option value="X">X</option>
+                                        <option value="XI">XI</option>
+                                        <option value="XII">XII</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">NISN</label>
+                                        <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015" value="<?=$row['nisn'];?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
+                                        <input type="text" id="email-id-column" class="form-control" name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU" value="<?=$row['atas_nama'];?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="company-column">No Rekening</label>
+                                        <input type="text" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********" value="<?=$row['no_rek'];?>"/>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <!-- <div class="col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
+                                        <input type="file" id="email-id-column" class="form-control" name="photo" placeholder="No Rekening"/>
+                                    </div>
+                                </div> -->
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" name="submit" class="btn btn-primary me-1 mb-1">
+                                        Ubah Data
+                                    </button>
+                                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php endforeach; ?>
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->

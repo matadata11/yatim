@@ -93,7 +93,7 @@
                                         </div>
                                         <div class='col-md-2'>
                                             &nbsp;<br />
-                                            <img class='img img-responsive' src="<?= __img('pengaturan/' . $set['picture']) ?>" height='50' />
+                                            <img class='img img-responsive' src="<?= __img('pengaturan/' . $set['logo']) ?>" height='50' />
                                         </div>
                                     </div>
                                 </div>

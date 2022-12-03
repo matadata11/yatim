@@ -31,7 +31,27 @@ class User extends Admin_Controller {
     	}
     	echo $data;
 	}
+	
 
+	function add_ajax_sek($id_kab)
+	{
+    	$query = $this->db->get_where('mt_admin',array('kabupaten_id'=>$id_kab));
+    	$data = "<option value=''> - Pilih Sekolah - </option>";
+    	foreach ($query->result() as $value) {
+        	$data .= "<option value='".$value->id_admin."'>".$value->fullname."</option>";
+    	}
+    	echo $data;
+	}
+
+	function add_ajax_siswa($id_admin)
+	{
+    	$query = $this->db->get_where('dt_siswa',array('admin_id'=>$id_admin));
+    	$data = "<option value=''> - Pilih Siswa - </option>";
+    	foreach ($query->result() as $value) {
+        	$data .= "<option value='".$value->id_siswa."'>".$value->nm_siswa."</option>";
+    	}
+    	echo $data;
+	}
 
 	// Menampilkan halaman master user
 	public function index()

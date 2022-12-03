@@ -5,7 +5,7 @@
         </span>
         <span class='animated bounce logo-lg'>
         <?php foreach($pengaturan as $set): ?>
-        <img src="<?= __img('pengaturan/' . $set['picture']) ?>" width="130" height="30" alt="" >
+        <img src="<?= __img('pengaturan/' . $set['logo']) ?>" width="130" height="30" alt="" >
         <?php endforeach; ?>
         </span>
     </a>

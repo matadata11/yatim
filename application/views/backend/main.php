@@ -301,31 +301,82 @@
             return false;
         })
 
-        $("#kecamatan").change(function (){
-            var url = "<?php echo site_url('admin/sekolah/add_ajax_des');?>/"+$(this).val();
-            $('#desa').load(url);
-            return false;
-        })
-
-        $("#desa").change(function (){
-            var url = "<?php echo site_url('admin/sekolah/add_ajax_sek');?>/"+$(this).val();
+        $("#kabupaten").change(function (){
+            var url = "<?php echo site_url('admin/user/add_ajax_sek');?>/"+$(this).val();
             $('#sekolah').load(url);
             return false;
         })
 
         $("#sekolah").change(function (){
-            var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
-            $('#jurusan').load(url);
+            var url = "<?php echo site_url('admin/user/add_ajax_siswa');?>/"+$(this).val();
+            $('#siswa').load(url);
             return false;
         })
 
-        $("#sekolah").change(function (){
-            var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
-            $('#jurusan2').load(url);
-            return false;
-        })
+        // $("#sekolah").change(function (){
+        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
+        //     $('#jurusan').load(url);
+        //     return false;
+        // })
+
+        // $("#sekolah").change(function (){
+        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
+        //     $('#jurusan2').load(url);
+        //     return false;
+        // })
     });
 </script>
+
+
+<!-- pindah -->
+<script>
+    $(document).ready(function(){
+        $("#provinsi1").change(function (){
+            var url = "<?php echo site_url('admin/pindah/add_ajax_kab');?>/"+$(this).val();
+            $('#kabupaten1').load(url);
+            return false;
+        })
+
+        $("#kabupaten1").change(function (){
+            var url = "<?php echo site_url('admin/pindah/add_ajax_instansi');?>/"+$(this).val();
+            $('#instansi1').load(url);
+            return false;
+        })
+
+        $("#kabupaten1").change(function (){
+            var url = "<?php echo site_url('admin/pindah/add_ajax_sek');?>/"+$(this).val();
+            $('#sekolah1').load(url);
+            return fals1e;
+        })
+
+        $("#kabupaten1").change(function (){
+            var url = "<?php echo site_url('admin/pindah/add_ajax_admin');?>/"+$(this).val();
+            $('#admin1').load(url);
+            return fals1e;
+        })
+
+        $("#sekolah1").change(function (){
+            var url = "<?php echo site_url('admin/pindah/add_ajax_siswa');?>/"+$(this).val();
+            $('#siswa1').load(url);
+            return false;
+        })
+
+        // $("#sekolah").change(function (){
+        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
+        //     $('#jurusan').load(url);
+        //     return false;
+        // })
+
+        // $("#sekolah").change(function (){
+        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
+        //     $('#jurusan2').load(url);
+        //     return false;
+        // })
+    });
+</script>
+
+
+<!--  -->
 
 <script>
     $(document).idle({
@@ -389,6 +440,7 @@
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
         });
+
     </script>
 
     

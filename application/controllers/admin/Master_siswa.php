@@ -60,6 +60,7 @@ class Master_siswa extends Admin_Controller {
     public function store()
     {
         if(isset($_POST['submit'])){
+            $admin_id            	= $this->input->post('admin_id', TRUE);
             $admin_input            = $this->input->post('admin_input', TRUE);
             $provinsi_id            = $this->input->post('provinsi_id', TRUE);
             $kabupaten_id           = $this->input->post('kabupaten_id', TRUE);
@@ -102,6 +103,7 @@ class Master_siswa extends Admin_Controller {
             }
 
             $data = [
+                'admin_id'       	=> $admin_id,
                 'admin_input'       => $admin_input,
                 'provinsi_id'       => $provinsi_id,
                 'kabupaten_id'      => $kabupaten_id,

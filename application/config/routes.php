@@ -52,6 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['Patch']                         = 'admin/Master_patch';
 $route['patching']             	        = 'admin/Master_patch/patchsystem';
 
+// pindah siswa
+$route['pindah']                        = 'admin/Pindah';
+$route['pindah-data']                   = 'admin/Pindah/updated';
+
 // master Laporan
 $route['master_laporan']                = 'admin/Master_laporan';
 $route['export_pdf']                    = 'report/Data_siswa/pdf';
