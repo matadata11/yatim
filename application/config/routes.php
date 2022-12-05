@@ -49,6 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+$route['berkas']                 		= 'admin/berkas';
+$route['add-berkas']                    = 'admin/berkas/store';
+$route['hapus-berkas/(:num)']           = 'admin/berkas/destroy';
+
 $route['Patch']                         = 'admin/Master_patch';
 $route['patching']             	        = 'admin/Master_patch/patchsystem';
 

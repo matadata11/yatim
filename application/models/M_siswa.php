@@ -135,6 +135,22 @@ class M_siswa extends CI_Model {
         return $this->db->get($this->_table)->result();
     }
 
+    function get_data_pindah($admin_id){
+		$hsl=$this->db->query("SELECT * FROM dt_siswa WHERE admin_id='$admin_id'");
+		if($hsl->num_rows()>0){
+			foreach ($hsl->result() as $data) {
+				$hasil=array(
+					'admin_id' 			=> $data->admin_id,
+					'admin_input' 			=> $data->admin_input,
+					'nm_sekolah' 			=> $data->nm_sekolah,
+					// 'harga_jual'	=> $data->harga_jual,
+					// 'stok' 			=> $data->stok,
+				);
+			}
+		}
+		return $hasil;
+	}
+
 }
 
 /* End of file M_siswa.php */

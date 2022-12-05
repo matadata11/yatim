@@ -86,7 +86,7 @@ if (isset($_GET['pg'])) {
 					";
 		}
 		if ($logC == 0) {
-			echo "<p class='text-center'>Tidak ada aktifitas.</p>";
+			echo "<p class='text-center'>Belum ada pengumuman.</p>";
 		}
 		echo "</ul>";
 	} elseif ($pg == 'pengumumansiswa') {

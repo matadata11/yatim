@@ -32,7 +32,7 @@ class M_berkas extends CI_Model {
         $query = $this->db->get('mt_berkas');
         $row = $query->row();
         
-        unlink("./public/berkas/$row->berkas");
+        unlink("./assets/berkas/$row->berkas");
         return $this->db->delete($this->_table, ['id_berkas' => $key]);
     }
     
