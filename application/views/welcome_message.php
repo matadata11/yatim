@@ -26,13 +26,13 @@
 
                     <form method="post" action="<?=site_url('checkdulu')?>">
                         <div class="form-group position-relative has-icon-left mb-2">
-                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Username">
+                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Username" autocomplete="off">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-3">
-                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" autocomplete="off">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -61,7 +61,7 @@
                     </form>
                     <div class="text-center mt-4 text-lg fs-6" style="margin-bottom:-20px;">
                         <p><a class="font-bold" data-bs-toggle="modal" href="#reset">Reset Password?</a>.</p>
-                        <p>Dikembangkan Oleh <a href="https://notfound.id">Not Found Indonesia</a> <br> Suport <a href="https://matadata.tech">Matadata Technologi</a></p>
+                        <p>Dikembangkan Oleh <a href="https://notfound.id">Notfound Indonesia</a> <br> Suport <a href="https://matadata.tech">Matadata Technologi</a></p>
                     </div>
                 </div>
             </div>

@@ -797,7 +797,7 @@
                                     </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label class="font-size-h6 font-weight-bolder text-dark">Sekolah <span class="text-danger">*</span></label>
