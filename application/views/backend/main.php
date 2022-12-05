@@ -34,7 +34,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     
-    <link href="<?= __img('pancacita.png') ?>" rel="shortcut icon">
+    <link rel="shortcut icon" href="<?=__img('logo/sisy.png');?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=__img('logo/sisy.png');?>" type="image/png">
     
     <noscript>
     <style>html{display:none;}</style>
@@ -182,7 +183,7 @@
                     <div class='pull-left hidden-xs'>
                         <strong>
                             <span id='end-sidebar'>
-                            &copy; <?=date('Y')?> - Developer <strong><?=master('dev')?></strong> | versi <?=master('version')?>
+                            &copy; <?=date('Y')?> - Developer <strong><?=master('Aauthor')?></strong> | versi <?=master('version')?>
                             </span>
                         </strong>
                     </div>

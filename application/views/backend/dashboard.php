@@ -1,4 +1,4 @@
-    <section class='content'>
+<section class='content'>
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -89,12 +89,12 @@
                         <ul class="list-group">
                             <li class="list-group-item"><img src="<?= site_url();?>/dist/img/support-custom.png" style="background-color: #1e81b0;" class="img-circle" width="40" height="40" alt="">
                                 <a href="#cabang" data-toggle="modal"> &nbsp;
-                                    <strong>Tim Teknis Cabang Dinas</strong>
+                                    <strong>Tim Teknis Dinas</strong>
                                 </a>
                             </li>
                             <li class="list-group-item"><img src="<?= site_url();?>/dist/img/support-custom.png" width="40" style="background-color: #E08383;" class="img-circle" height="40" alt="">
                                 <a href="#pusat" data-toggle="modal"> &nbsp;
-                                    <strong>Posko Teknis Not Found</strong>
+                                    <strong>Posko Teknis Notound</strong>
                                 </a>
                             </li>
                         </ul>
@@ -134,7 +134,8 @@
                     </div>
                     <div class='box-body'>
                         <div style="margin-top: 5px;padding:5px;">
-                        <iframe width="100%" height="215" src="https://www.youtube.com/embed/zC-6glEA4oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!--<iframe width="100%" height="215" src="https://www.youtube.com/embed/zC-6glEA4oU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+                         <h5 class="text-danger" style="padding: 1px;"><i class="fa fa-times"></i> Belum Ada Video di upload.</h5>
                         </div>
                     </div>
                 </div>
