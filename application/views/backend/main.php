@@ -690,19 +690,19 @@ function clock()
 
 <script type="text/javascript">
 	$(document).ready(function(){
-			$('#instansi1').on('input',function(){
+			$('#reset').on('input',function(){
 			
-			var instansi=$(this).val();
+			var email=$(this).val();
 			$.ajax({
 				type : "POST",
-				url  : "<?php echo base_url('admin/Instansi/get_instansi')?>",
+				url  : "<?php echo base_url('Reset/get_reset')?>",
 				dataType : "JSON",
-				data : {instansi: instansi},
+				data : {email: email},
 				cache:false,
 				success: function(data){
-					$.each(data,function(instansi, lat_kantor, long_kantor){
-						$('[name="lat_kantor"]').val(data.lat_kantor);
-						$('[name="long_kantor"]').val(data.long_kantor);
+					$.each(data,function(email, id_admin, fullname){
+						$('[name="id_admin"]').val(data.id_admin);
+						$('[name="fullname"]').val(data.fullname);
 						// $('[name="harga"]').val(data.harga_jual);
 						// $('[name="stok"]').val(data.stok);
 						

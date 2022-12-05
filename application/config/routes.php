@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['cari-email']                	= 'Reset/hasil';
 
 $route['berkas']                 		= 'admin/berkas';
 $route['add-berkas']                    = 'admin/berkas/store';
