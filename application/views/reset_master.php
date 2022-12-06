@@ -62,7 +62,7 @@
                 </div>
 
                 <input type="submit" name="submit" value="Ubah Password" class="btn btn-block btn-info">
-                </form>
+                </form> 
 
                 <div class="text-center mt-4">
                 <a href='<?=site_url('/');?>' style='text-decoration:none;float:center;'> <i class="fas fa-fw fa-share"></i> 
