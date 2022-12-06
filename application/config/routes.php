@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['cari-email']                	= 'Reset/hasil';
+$route['reset-akun']                	= 'Reset/reset';
 
 $route['berkas']                 		= 'admin/berkas';
 $route['add-berkas']                    = 'admin/berkas/store';

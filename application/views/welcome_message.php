@@ -21,6 +21,8 @@
                     <div class="auth-logo" style="margin-top:1rem;">
                         <a href="<?=site_url('/');?>"><img src="<?=__img('logo/sisy.png');?>" alt="Logo"></a>
                     </div>
+                    
+
                     <h1 class="auth-title">Sistem Informasi Siswa Yatim</h1>
                     <p class="auth-subtitle mb-2">Masuk dengan akun aktif anda.</p>
 
@@ -38,6 +40,9 @@
                             </div>
                         </div>
 
+                        <div class="text-danger">
+                        <?php echo $this->session->flashdata('notif_false'); ?>
+                        </div>
                         <!-- <div class="form-group position-relative has-icon-left mb-3">
                             <input type="password" class="form-control form-control-lg" placeholder="Password">
                             <select name="tahun" id="tahun" class="form-control form-control-lg">

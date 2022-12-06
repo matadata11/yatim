@@ -8,6 +8,7 @@ class Reset extends CI_Controller {
         parent::__construct();
         
         $this->load->model('M_reset','reset');
+        $this->load->model('M_user','user');
         
     }
 
@@ -32,10 +33,8 @@ class Reset extends CI_Controller {
         if(isset($_POST['submit'])){
                 $id_admin 		= $this->input->post('id_admin', TRUE);
                 $fullname    	= $this->input->post('fullname', TRUE);
-                $nip    	    = $this->input->post('nip', TRUE);
                 $jabatan    	= $this->input->post('jabatan', TRUE);
                 $email    		= $this->input->post('email', TRUE);
-                $level    		= $this->input->post('level', TRUE);
                 $password    	= $this->input->post('password', TRUE);
                 $password2    	= $this->input->post('password2', TRUE);
 
@@ -45,12 +44,10 @@ class Reset extends CI_Controller {
                 $data = [
                     'id_admin'      => $id_admin,
                     'fullname'      => $fullname,
-                    'nip'           => $nip,
                     'jabatan'       => $jabatan,
                     'email'         => $email,
-                    'level'         => $level,
                     'password'   	=> password_hash($password, PASSWORD_DEFAULT),
-                    'ubah'    		=> date('Y-m-d H:m:s')
+                    'reset'    		=> date('Y-m-d H:m:s')
                 ];
             }
             $save = $this->user->update($data, $id_admin);
@@ -59,7 +56,7 @@ class Reset extends CI_Controller {
             }else{
                 $this->session->set_flashdata('notif_false', 'Data Gagal Ditambahkan.');
             }
-            redirect($_SERVER['HTTP_REFERER']);
+            redirect('/');
         }
     }
 
