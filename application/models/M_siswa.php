@@ -12,9 +12,9 @@ class M_siswa extends CI_Model {
         $this->db->select('*');
         $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id_provinsi = dt_siswa.provinsi_id');
         $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id_kabupaten = dt_siswa.kabupaten_id');
-            // $this->db->where('status', 'null');
-            $this->db->where('locks', 'Ylock');
-            $this->db->where('lock_admin', 'Ylock');
+            // // $this->db->where('status', 'null');
+            // $this->db->where('locks', 'Ylock');
+            // $this->db->where('lock_admin', 'Ylock');
         $this->db->order_by('id_siswa', 'DESC');
         return $this->db->get($this->_table)->result_array();
     }

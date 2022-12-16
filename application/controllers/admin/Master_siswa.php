@@ -238,6 +238,7 @@ class Master_siswa extends Admin_Controller {
     public function import_excel()
 	{
 		$id_siswa    				= $this->input->post('id_siswa', TRUE);
+		$admin_id    				= $this->input->post('admin_id', TRUE);
 		$admin_input    			= $this->input->post('admin_input', TRUE);
 
 		include APPPATH . 'third_party/PHPExcel/PHPExcel.php';
@@ -263,6 +264,7 @@ class Master_siswa extends Admin_Controller {
 				if ($numrow > 1) {
 					array_push($data, array(
 						'id_siswa'   			=> $id_siswa,
+						'admin_id'   			=> $admin_id,
 						'admin_input'   		=> $admin_input,
 						'nm_siswa'				=> $row['A'],
 						'nisn'			        => $row['B'],
@@ -274,7 +276,9 @@ class Master_siswa extends Admin_Controller {
 						'no_rek'			    => $row['H'],
 						'no_hp'					=> $row['I'],
 						'kelas'					=> $row['J'],
-                        'locks'                  => 'Nlock',
+                        'locks'                 => 'Nlock',
+                        'lock_admin'            => 'Nlock',
+                        'lock_super'            => 'Nlock',
 						'nominal'       		=> 600000,
 						'created_at'    		=> date('Y-m-d H:m:s')
 					));

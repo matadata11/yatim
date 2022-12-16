@@ -753,6 +753,7 @@
                         <form method="post" action="<?= site_url('import-inputan') ?>" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Pilih File Excel</label>
+                                <input type="hidden" class="form-control" name="admin_id" value="<?= $this->session->userdata('id_admin'); ?>">
                                 <input type="hidden" class="form-control" name="admin_input" value="<?= $this->session->userdata('fullname'); ?>">
                                 <input type="file" class="form-control" name="dataexcel">
                             </div>
@@ -871,7 +872,7 @@
                                         
                                     </div>
                                 </div> -->
-                                
+
                                 <!-- <div class="col-md-12 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
