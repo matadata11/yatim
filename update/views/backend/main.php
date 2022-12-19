@@ -746,6 +746,8 @@ function clock()
 
 	});
 </script>
+
+
 <!-- <script>
 	window.print();
 </script> -->

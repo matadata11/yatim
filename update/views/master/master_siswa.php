@@ -8,7 +8,9 @@
                 <div class='box-header with-border'>
                     <h3 class='box-title'><i class='fas fa-server side-menu-icon fa-fw'></i> Data Siswa</h3>
                     <div class='box-tools pull-right'>
+                        <!-- <?php if ($this->session->userdata('level') == 'Super' ) { ?>
                         <button class='btn btn-sm btn-flat btn-success' data-toggle='modal' data-target='#import'><i class='fas fa-upload'></i> Import Siswa</button>
+                        <?php } ?> -->
                         <button class='btn btn-sm btn-flat btn-success' data-toggle='modal' data-target='#tambahposko'><i class='fa fa-plus'></i> Input Siswa</button>
                     </div>
                 </div><!-- /.box-header -->
@@ -93,13 +95,13 @@
                             <?php $no=1; foreach($siswa_super as $row): ?>
                         <tr>
                             <td><?=$no++;?></td>
-                            <td><?=$row['nama_kabupaten']?></td>
-                            <td width="0%"><?=$row['nm_sekolah']?></td>
-                            <td><?=$row['kelas']?></td>
-                            <td><a data-toggle="modal" href="#buku<?=$row['id_siswa'];?>" style="font-style:bold;"><?=$row['nm_siswa']?></a></td>
-                            <td><?=$row['nisn']?></td>
-                            <td><?=$row['atas_nama']?></td>
-                            <td><?=$row['no_rek']?></td>
+                            <td><?=$row['nama_kabupaten'];?></td>
+                            <td width="0%"><?=$row['nm_sekolah'];?></td>
+                            <td><?=$row['kelas'];?></td>
+                            <td><a data-toggle="modal" href="#buku<?=$row['id_siswa'];?>" style="font-style:bold;"><?=$row['nm_siswa'];?></a></td>
+                            <td><?=$row['nisn'];?></td>
+                            <td><?=$row['atas_nama'];?></td>
+                            <td><?=$row['no_rek'];?></td>
                             <td width="13%">
 
                                 <?php if($row['locks']  == 'Ylock' ): ?>
@@ -112,7 +114,7 @@
 
                                 <?php if($row['lock_super']  == 'Ylock' ): ?>
                                     <button class="btn btn-block btn-danger disabled">  <i class="fas fa-fw fa-lock"></i></button>
-                                    
+
                                 <?php elseif($row['lock_super'] == 'Nlock' ): ?>
                                     <!-- <a href="#locks<?=$row['id_siswa'];?>" data-bs-toggle="modal" style="color:#fff;"> <button class="btn btn-primary">  <i class="bi bi-unlock-fill"></i></button></a> -->
                                     <a href="#edit<?=$row['id_siswa'];?>" data-toggle="modal" style="color:#fff;"> <button class="btn btn-xs btn-warning" data-toggle="tooltip" data-placement="left" title="Edit Siswa">  <i class="fas fa-fw fa-edit"></i> Edit</button></a>
@@ -155,7 +157,7 @@
                                     ?>
                                 </select>
                                 <input type="hidden" id="email-id-column" class="form-control" name="admin_input" value="<?=__session('fullname');?>" placeholder="ex. 201501015"/>
-                                <input type="hidden" id="email-id-column" class="form-control" name="admin_id" value="<?=__session('id_admin');?>" placeholder="ex. 201501015"/>
+                                <input type="hidden" id="email-id-column" class="form-control" name="admin_kab" value="<?=__session('admin');?>" placeholder="ex. 201501015"/>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
@@ -753,6 +755,7 @@
                         <form method="post" action="<?= site_url('import-inputan') ?>" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Pilih File Excel</label>
+                                <input type="hidden" class="form-control" name="admin_id" value="<?= $this->session->userdata('id_admin'); ?>">
                                 <input type="hidden" class="form-control" name="admin_input" value="<?= $this->session->userdata('fullname'); ?>">
                                 <input type="file" class="form-control" name="dataexcel">
                             </div>
@@ -871,7 +874,7 @@
                                         
                                     </div>
                                 </div> -->
-                                
+
                                 <!-- <div class="col-md-12 col-12">
                                     <div class="form-group">
                                         <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
