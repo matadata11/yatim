@@ -62,6 +62,7 @@ class Master_siswa extends Admin_Controller {
         if(isset($_POST['submit'])){
             $admin_kab            	= $this->input->post('admin_kab', TRUE);
             $admin_input            = $this->input->post('admin_input', TRUE);
+            $admin_id            	= $this->input->post('admin_id', TRUE);
             $provinsi_id            = $this->input->post('provinsi_id', TRUE);
             $kabupaten_id           = $this->input->post('kabupaten_id', TRUE);
             $nm_sekolah             = $this->input->post('nm_sekolah', TRUE);
@@ -105,6 +106,7 @@ class Master_siswa extends Admin_Controller {
             $data = [
                 'admin_kab'       	=> $admin_kab,
                 'admin_input'       => $admin_input,
+                'admin_id'       	=> $admin_id,
                 'provinsi_id'       => $provinsi_id,
                 'kabupaten_id'      => $kabupaten_id,
                 'nm_sekolah'        => $nm_sekolah,

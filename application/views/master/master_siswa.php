@@ -133,7 +133,7 @@
             </div><!-- /.box -->
         </div>
 
-        <!-- tambah posko -->
+        <!-- tambah Siswa -->
         <div class='modal fade' id='tambahposko' data-backdrop="static" role="dialog">>
             <div class='modal-dialog'>
                 <div class='modal-content'>
@@ -158,6 +158,8 @@
                                 </select>
                                 <input type="hidden" id="email-id-column" class="form-control" name="admin_input" value="<?=__session('fullname');?>" placeholder="ex. 201501015"/>
                                 <input type="hidden" id="email-id-column" class="form-control" name="admin_kab" value="<?=__session('admin');?>" placeholder="ex. 201501015"/>
+
+                                <input type="hidden" id="email-id-column" class="form-control" name="admin_id" value="<?=__session('id_admin');?>" placeholder="ex. 201501015"/>
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
@@ -171,19 +173,19 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="city-column">Nama Sekolah</label>
-                                <input type="text" id="city-column" class="form-control" placeholder="ex. SMK Negeri 1 Simpang Kanan" name="nm_sekolah"/>
+                                <input type="text" id="city-column" class="form-control" value="<?=__session('sekolah');?>" name="nm_sekolah" readonly required />
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="country-floating">Nama Siswa</label>
-                                <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa"/>
+                                <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" required />
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">Kelas</label>
-                                <select name="kelas" id="first-name-column" class="form-control">
+                                <select name="kelas" id="first-name-column" class="form-control" required >
                                 <option value="">-kelas-</option>
                                 <option value="X">X</option>
                                 <option value="XI">XI</option>
@@ -196,28 +198,28 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">NISN</label>
-                                <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015"/>
+                                <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015" required />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Nama Bank</label>
-                                <input type="text" id="email-id-column" class="form-control" name="nm_bank" placeholder="ex. Bank ACeh Syariah" />
+                                <input type="text" id="email-id-column" class="form-control" name="nm_bank" placeholder="ex. Bank ACeh Syariah" required />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
-                                <input type="text" id="email-id-column" class="form-control"   name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU"/>
+                                <input type="text" id="email-id-column" class="form-control"   name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU" required />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">No Rekening</label>
-                                <input type="text" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********"/>
+                                <input type="number" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********" required minlength="0" maxlength="14" />
                                 
                             </div>
                         </div>
@@ -225,7 +227,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">No Hp Siswa</label>
-                                <input type="text" id="email-id-column" class="form-control"  value="08" name="no_hp" placeholder="ex. 08">
+                                <input type="text" id="email-id-column" class="form-control"  value="08" name="no_hp" placeholder="ex. 08" required >
                                 
                             </div>
                         </div>
@@ -234,7 +236,7 @@
                         <div class="col-md-12 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
-                                <input type="file" class="form-control" name="photo">
+                                <input type="file" class="form-control" name="photo" required >
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-end text-center">
@@ -772,7 +774,7 @@
         
 
         <!-- pindah -->
-        <?php foreach($siswa_admin as $row): ?>
+        <?php foreach($siswa_super as $row): ?>
         <div class="modal fade" id="pindah<?=$row['id_siswa'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">
@@ -782,6 +784,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="first-name-column">Provinsi</label>
+                                        <input type="hidden" name="id_siswa" value="<?=$row['id_siswa'];?>">
                                         <select name="provinsi_id" class="form-control" id="provinsi1">
                                             <option value="<?=$row['provinsi_id'];?>"><?=$row['nama'];?></option>
                                             <?php 
@@ -823,13 +826,13 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <!-- <label>Admin Input <span class="text-danger">*</span></label> -->
-                                        <input type="hidden" class="form-control" name="admin_input" autocomplete="off" readonly required="">
+                                        <input type="text" class="form-control" name="admin_input" autocomplete="off" readonly required="">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <!-- <label>Admin Input <span class="text-danger">*</span></label> -->
-                                        <input type="hidden" class="form-control" name="nm_sekolah" autocomplete="off" readonly required="">
+                                        <input type="text" class="form-control" name="nm_sekolah" autocomplete="off" readonly required="">
                                     </div>
                                 </div>
 

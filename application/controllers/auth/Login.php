@@ -31,6 +31,7 @@ class Login extends CI_Controller {
 							'level'	        	=> $account['level'],
 							'kabupaten_id'	    => $account['kabupaten_id'],
 							'provinsi_id'	    => $account['provinsi_id'],
+							'sekolah'	    => $account['sekolah'],
 							'login'		        => 'OK',
 						];
 						$this->session->set_userdata($data);

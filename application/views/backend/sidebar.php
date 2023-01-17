@@ -71,10 +71,11 @@
 			<li class='treeview'>
 				<a href='#'><i class="fas fa-server side-menu-icon fa-fw"></i><span> Master Sekolah </span><span class='pull-right-container'> <i class='fa fa-angle-down pull-right'></i> </span></a>
 				<ul class='treeview-menu'>
+					<!--<li><a href='pindah'><i class='fas fa-angle-double-right fa-fw'></i> <span> Pindah Siswa</span></a></li>-->
 					<li><a href='master_siswa'><i class='fas fa-angle-double-right fa-fw'></i> <span> Input Siswa</span></a></li>
 					<?php if ( $this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'Admin' ) { ?>
 					<li><a href='verval_inputan'><i class='fas fa-angle-double-right fa-fw'></i> <span> Verval Siswa</span></a></li>
-					<!--<li><a href='pindah'><i class='fas fa-angle-double-right fa-fw'></i> <span> Pindah Siswa</span></a></li>-->
+					
 					<?php } ?>
 				</ul>
 			</li>
@@ -166,8 +167,10 @@
 			</li>
 			<?php } ?>
 
-
-			
+			<?php if ($this->session->userdata('level') == 'Super') { ?>
+			<li class="header">DATABASE</li>
+			<li class='treeview'><a href='dbsiswa'><i class="fas fa-database side-menu-icon fa-fw"></i> <span> Database Siswa</span></a></li>
+			<?php } ?>
 
 
 		</ul><!-- /.sidebar-menu -->
