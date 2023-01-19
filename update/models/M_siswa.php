@@ -118,11 +118,16 @@ class M_siswa extends CI_Model {
     }
 
     // Menghapus data dari database
-	public function delete()
-	{
-		$key = $this->uri->segment(2);
-		return $this->db->delete($this->_table,['id_siswa' => $key]);
-	}
+    public function delete()
+    {
+        $key = $this->uri->segment(2);
+        $this->db->where('id_siswa',$key);
+        $query = $this->db->get('dt_siswa');
+        $row = $query->row();
+        
+        unlink("./assets/images/buku/$row->photo_buku");
+        return $this->db->delete($this->_table, ['id_siswa' => $key]);
+    }
 
     // cari data
     public function cariOrang()

@@ -20,35 +20,7 @@
                         <div class="row">
                         <?php if ($this->session->userdata('level') == 'Super') { ?>
                             <div class="col-md-12">
-                                <div class="box box-solid">
                                 
-                                    <!-- <div class="box-header whith-border">
-                                        <h3 class="box-title"><i class="fas fa-list side-menu-icon fa-fw"></i> Pantau Cabang</h3>
-                                        <div class="box-tools pill-right">
-                                            <button class="btn btn-sm btn-flat btn-success" data-toggle="modal" data-target="#tabah"><i class="fas fa-plus"></i> Tambah</button>
-                                        </div>
-                                    </div> -->
-
-                                    
-                                    <!-- <div class="box-body auto-cabdin">
-                                        <div class="col-md-12">
-                                            <h5>Cabdin Wilayah Kota Subulussalam dan Kab. Aceh Singkil</h5>
-                                            <progress value="22" max="100" style="width:75%;"></progress> <b>20% <font color="red">Merah</font></b> <button class="btn btn-sm btn-flat btn-success"><i class="fas fa-eye"></i> Detail</button> 
-
-                                            <h5>Cabdin Wilayah Kota Subulussalam dan Kab. Aceh Singkil</h5>
-                                            <progress value="22" max="100" style="width:75%;"></progress> <b>20% <font color="red">Merah</font></b> <button class="btn btn-sm btn-flat btn-success"><i class="fas fa-eye"></i> Detail</button> 
-
-                                            <h5>Cabdin Wilayah Kota Subulussalam dan Kab. Aceh Singkil</h5>
-                                            <progress value="22" max="100" style="width:75%;"></progress> <b>20% <font color="red">Merah</font></b> <button class="btn btn-sm btn-flat btn-success"><i class="fas fa-eye"></i> Detail</button> 
-
-                                            <h5>Cabdin Wilayah Kota Subulussalam dan Kab. Aceh Singkil</h5>
-                                            <progress value="22" max="100" style="width:75%;"></progress> <b>20% <font color="red">Merah</font></b> <button class="btn btn-sm btn-flat btn-success"><i class="fas fa-eye"></i> Detail</button> 
-
-                                        </div>
-                                        
-                                        
-                                    </div> -->
-                                </div>    
                             </div>
                             <?php } ?>
                         </div>

@@ -458,22 +458,23 @@
 
     <script type="text/javascript">
 		$(document).ready(function(){
-            $('#kode').on('input',function(){
+            $('#nama').on('input',function(){
                 
-                var kode=$(this).val();
+                var nama=$(this).val();
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('admin/sekolah/get_sarana')?>",
+                    url  : "<?php echo base_url('admin/Database_siswa/get_nama')?>",
                     dataType : "JSON",
-                    data : {kode: kode},
+                    data : {nama: nama},
                     cache:false,
                     success: function(data){
-                        $.each(data,function(kode, nama){
-                            $('[name="nama"]').val(data.nama);
-                            // $('[name="j_anggaran"]').val(data.j_anggaran);
-                            // $('[name="sk"]').val(data.sk);
-                            // $('[name="tahun"]').val(data.tahun);
-                            // $('[name="status"]').val(data.status);
+                        $.each(data,function(nama, nisn, kelas, bank, atasnama, no_rek, hp){
+                            $('[name="nisn"]').val(data.nisn);
+                            $('[name="kelas"]').val(data.kelas);
+                            $('[name="nm_bank"]').val(data.bank);
+                            $('[name="atas_nama"]').val(data.atasnama);
+                            $('[name="no_rek"]').val(data.no_rek);
+                            $('[name="no_hp"]').val(data.hp);
                             
                         });
                         

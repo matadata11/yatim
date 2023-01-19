@@ -49,6 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+$route['database_siswa']                = 'admin/Database_siswa';
+$route['hapus_db/(:num)']               = 'admin/Database_siswa/destroy';
+$route['import-dbsiswa']                = 'admin/Database_siswa/import_excel';
+
+
 $route['cari-email']                	= 'Reset/hasil';
 $route['reset-akun']                	= 'Reset/reset';
 

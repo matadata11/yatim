@@ -147,7 +147,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="first-name-column">Provinsi</label>
-                                <select name="provinsi_id" class="form-control" id="provinsi">
+                                <select name="provinsi_id"class="form-control js-example-basic-single"  style="width:100%;" id="provinsi">
                                     <option>- Select Provinsi -</option>
                                     <?php 
                                         foreach($provinsi as $prov)
@@ -178,19 +178,20 @@
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="country-floating">Nama Siswa</label>
-                                <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" required />
+                                <label for="country-floating">Nama Siswa <small class="text-danger" style="font-size:8px;">Masukkan Nama yang pernah Diajukan</small></label>
+                                <input type="text" id="nama" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" required />
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">Kelas</label>
-                                <select name="kelas" id="first-name-column" class="form-control" required >
+                                <input type="text" name="kelas" class="form-control" placeholder="Otomatis" required readonly>
+                                <!-- <select name="kelas" id="first-name-column" class="form-control" required >
                                 <option value="">-kelas-</option>
                                 <option value="X">X</option>
                                 <option value="XI">XI</option>
                                 <option value="XII">XII</option>
-                                </select>
+                                </select> -->
                                 
                             </div>
                         </div>
@@ -198,28 +199,28 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">NISN</label>
-                                <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015" required />
+                                <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="Otomatis" required readonly/>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Nama Bank</label>
-                                <input type="text" id="email-id-column" class="form-control" name="nm_bank" placeholder="ex. Bank ACeh Syariah" required />
+                                <input type="text" id="email-id-column" class="form-control" name="nm_bank" placeholder="Otomatis" required readonly />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
-                                <input type="text" id="email-id-column" class="form-control"   name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU" required />
+                                <input type="text" id="email-id-column" class="form-control"   name="atas_nama" placeholder="Otomatis" required readonly />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">No Rekening</label>
-                                <input type="number" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********" required minlength="0" maxlength="14" />
+                                <input type="number" id="email-id-column" class="form-control" name="no_rek" pplaceholder="Otomatis" required readonly minlength="0" maxlength="14" />
                                 
                             </div>
                         </div>
@@ -227,7 +228,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">No Hp Siswa</label>
-                                <input type="text" id="email-id-column" class="form-control"  value="08" name="no_hp" placeholder="ex. 08" required >
+                                <input type="text" id="email-id-column" class="form-control"  value="08" name="no_hp" placeholder="Otomatis" required readonly>
                                 
                             </div>
                         </div>
@@ -836,54 +837,6 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="country-floating">Nama Siswa</label>
-                                        <input type="hidden" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="id_siswa" value="<?=$row['id_siswa'];?>"/>
-                                        <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" value="<?=$row['nm_siswa'];?>"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="company-column">Kelas</label>
-                                        <select name="kelas" id="first-name-column" class="form-control">
-                                        <option value="<?=$row['kelas'];?>"><?=$row['kelas'];?></option>
-                                        <option value="X">X</option>
-                                        <option value="XI">XI</option>
-                                        <option value="XII">XII</option>
-                                        </select>
-                                        
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-column">NISN</label>
-                                        <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015" value="<?=$row['nisn'];?>"/>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
-                                        <input type="text" id="email-id-column" class="form-control" name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU" value="<?=$row['atas_nama'];?>"/>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="company-column">No Rekening</label>
-                                        <input type="text" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********" value="<?=$row['no_rek'];?>"/>
-                                        
-                                    </div>
-                                </div> -->
-
-                                <!-- <div class="col-md-12 col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
-                                        <input type="file" id="email-id-column" class="form-control" name="photo" placeholder="No Rekening"/>
-                                    </div>
-                                </div> -->
                                 <div class="col-12 d-flex justify-content-end">
                                     <button type="submit" name="submit" class="btn btn-primary me-1 mb-1">
                                         Ubah Data

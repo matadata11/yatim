@@ -169,7 +169,7 @@
 
 			<?php if ($this->session->userdata('level') == 'Super') { ?>
 			<li class="header">DATABASE</li>
-			<li class='treeview'><a href='dbsiswa'><i class="fas fa-database side-menu-icon fa-fw"></i> <span> Database Siswa</span></a></li>
+			<li class='treeview'><a href='database_siswa'><i class="fas fa-database side-menu-icon fa-fw"></i> <span> Database Siswa</span></a></li>
 			<?php } ?>
 
 
