@@ -41,7 +41,7 @@
                                     <td><?=$row['hp']?></td>
 
                                     <td class='text-center'  width='10%'>
-                                    <a href="#edit<?=$row['id_db']?>" data-toggle="modal" class='btn btn-flat btn-xs btn-warning'><i class="fas fa-fw fa-edit "></i> Edit</a>
+                                    <a href="#update<?=$row['id_db']?>" data-toggle="modal" class='btn btn-flat btn-xs btn-warning'><i class="fas fa-fw fa-edit "></i> Edit</a>
 
                                     <a href="#hapus<?=$row['id_db']?>" data-toggle="modal" class='btn btn-flat btn-xs btn-danger'><i class="fas fa-fw fa-trash "></i> Hapus</a>
                                     </td>
@@ -56,50 +56,102 @@
     </section>
 </div>
 
-<!-- modal tambah -->
-<div class='modal fade' id='tabahkab' data-backdrop="static" role="dialog">
+<!-- modal update -->
+<?php foreach($dbsiswa as $row): ?>
+<div class='modal fade' id='update<?=$row['id_db'];?>' data-backdrop="static" role="dialog">
     <div class='modal-dialog'>
         <div class='modal-content'>
             <div class='modal-header bg-blue'>
                 <button class='close' data-dismiss='modal'><span aria-hidden='true'><i class='glyphicon glyphicon-remove'></i></span></button>
-                <h3 class='modal-title'>Tambah Berkas</h3>
+                <h3 class='modal-title'>Update data DbSiswa</h3>
             </div>
             <div class='modal-body'>
-                <form method="post" action="<?=site_url('add-berkas')?>" enctype="multipart/form-data">
+            <form class="form" method="post" action="<?=site_url('updatabase_siswa')?>" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="city-column">Nama Sekolah</label>
+                                <input type="text" id="city-column" class="form-control" value="<?=$row['sekolah'];?>" name="sekolah"  required />
+                                <input type="hidden" id="city-column" class="form-control" value="<?=$row['id_db'];?>" name="id_db"  required />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="country-floating">Nama Siswa </label>
+                                <input type="text" id="nama" class="form-control" placeholder="ex. Dwi Satria" name="nama" value="<?=$row['nama'];?>" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="company-column">Kelas</label>
+                                <select name="kelas" class="form-control" required>
+                                    <option value="<?=$row['kelas'];?>"><?=$row['kelas'];?></option>
+                                    <option value="X">X</option>
+                                    <option value="XI">XI</option>
+                                    <option value="XII">XII</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <div class="form-group" style="margin-top:-20px;">
-                        <!-- <label>Nama Pengirim</label> -->
-                        <input type="hidden" class="form-control" name="admin"  value="<?= $this->session->userdata('fullname'); ?>" required readonly autocomplete="off">
-                    </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="email-id-column">NISN</label>
+                                <input type="number" id="email-id-column" class="form-control" name="nisn" value="<?=$row['nisn'];?>" required />
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label>File Pdf</label>
-                        <input type="file" class="form-control" name="berkas">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Keterangan</label>
-                        <textarea name="tentang" id="tentang" class="form-control" cols="10" rows="2"></textarea>
-                    </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="email-id-column">Nama Bank</label>
+                                <input type="text" id="email-id-column" class="form-control" name="bank" value="<?=$row['bank'];?>" required  />
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Tipe</label>
-                        <select name="type" id="type" class="form-control">
-                            <option value="">Pilih:</option>
-                            <option value="Internal">Internal</option>
-                            <option value="External">External</option>
-                        </select>
-                    </div>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
+                                <input type="text" id="email-id-column" class="form-control"   name="atasnama" value="<?=$row['atasnama'];?>" required  />
+                            </div>
+                        </div>
 
-                    <div class="form-group text-center">
-                        <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check"></i> Submit</button>
-                        <button data-dismiss="modal" class="btn btn-danger"><i class="fas fa-kabes"></i> Cloce</button>
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="company-column">No Rekening</label>
+                                <input type="number" id="email-id-column" class="form-control" name="no_rek" value="<?=$row['no_rek'];?>" required  minlength="0" maxlength="14" />
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            <div class="form-group">
+                                <label for="company-column">No Hp Siswa</label>
+                                <input type="text" id="email-id-column" class="form-control" name="hp" value="<?=$row['hp'];?>" required >
+                                
+                            </div>
+                        </div>
+                        
+
+                        <!-- <div class="col-md-12 col-12">
+                            <div class="form-group">
+                                <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
+                                <input type="file" class="form-control" name="photo" required >
+                            </div>
+                        </div> -->
+                        <div class="col-12 d-flex justify-content-end text-center">
+                            <button type="submit" name="submit" class="btn btn-primary me-1 mb-1">
+                                Ubah
+                            </button>
+                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                                Reset
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<?php endforeach; ?>
 <!-- end -->
 
 

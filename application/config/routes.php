@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['database_siswa']                = 'admin/Database_siswa';
+$route['updatabase_siswa']                = 'admin/Database_siswa/update';
 $route['hapus_db/(:num)']               = 'admin/Database_siswa/destroy';
 $route['import-dbsiswa']                = 'admin/Database_siswa/import_excel';
 

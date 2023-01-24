@@ -12,6 +12,12 @@ class M_dbsiswa extends CI_Model {
 		return $this->db->get($this->_table)->result_array();
 	}
 
+    public function update($data, $id_db){
+        $query = $this->db->where('id_db', $id_db);
+        $query = $this->db->update($this->_table, $data);
+        return $query;
+    }
+
     public function delete(){
         $query = $this->db->delete($this->_table, ['id_db' => __uri(2)]);
         return $query;

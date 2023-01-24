@@ -125,11 +125,17 @@ class Master_siswa extends Admin_Controller {
                 'created_at'        => date('Y-m-d')
             ];
         }
-        $save = $this->siswa->entry($data);
+        $save = $this->db->get_where('dt_siswa', ['nisn' => $nisn])->row_array();
         if($save){
-            $this->session->set_flashdata('notif_true', 'Data Berhasil Ditambahkan.');
+            $this->session->set_flashdata('notif_false', 'Anda Hanya Boleh Melakukan Absensi Satu Kali.');
         }else{
-            $this->session->set_flashdata('notif_false', 'Data Gagal Ditambahkan.');
+            $flashdata  = $this->siswa->entry($data);
+            
+        }
+        if($flashdata){
+            $this->session->set_flashdata('notif_true', 'Terima Kasih');
+            $this->session->set_flashdata('audio', site_url('public/audio/terimakasih.mp3'));
+            
         }
         redirect($_SERVER['HTTP_REFERER']);
     }
