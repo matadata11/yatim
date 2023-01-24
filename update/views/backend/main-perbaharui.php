@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Cloud | <?=$title;?></title>
+    <title>Portal PSMK | <?=$title;?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Vendor-->
     <link rel='stylesheet' href='<?= site_url();?>/dist/bootstrap/css/bootstrap.min.css' />
-    <link rel='stylesheet' href='<?= site_url();?>/vendor/bootstrap/css/sira2.css' />
+    <link rel='stylesheet' href='<?= site_url();?>/vendor/bootstrap/css/sira1.css' />
 
     <link rel='stylesheet' href='<?= site_url();?>/plugins/fontawesome/css/all.css' />
 	<link rel='stylesheet' href='<?= site_url();?>/plugins/select2/select2.min.css' />
 	<link rel='stylesheet' href='<?= site_url();?>/dist/css/AdminLTE.css' />
-	<link rel='stylesheet' href='<?= site_url();?>/dist/css/skins/1skin-green-light.min.css' />
+	<link rel='stylesheet' href='<?= site_url();?>/dist/css/skins/skin-green-light.min.css' />
 	<link rel='stylesheet' href='<?= site_url();?>/plugins/jQueryUI/jquery-ui.css'>
 	<link rel='stylesheet' href='<?= site_url();?>/plugins/iCheck/square/green.css' />
 	<link rel='stylesheet' href='<?= site_url();?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'>
@@ -34,8 +34,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     
-    <link rel="shortcut icon" href="<?=__img('logo/sisy.png');?>" type="image/x-icon">
-    <link rel="shortcut icon" href="<?=__img('logo/sisy.png');?>" type="image/png">
+    <link href="<?= __img('pancacita.png') ?>" rel="shortcut icon">
     
     <noscript>
     <style>html{display:none;}</style>
@@ -43,17 +42,20 @@
     </noscript>
 
     <style>
-        .kiri-bar{
-            display:inline-block;
+        .auto{
+            /* margin-left */
+            /* display:block; */
             /* border: 1px solid red; */
+            width:50%;
             height:100%;
             overflow:auto;
             z-index: 999;
         }
 
-        .tabled {
-            display:block;
-            /* border: 1px solid red; */
+        .auto1{
+            /* display:block; */
+            /* padding:5px; */
+            /* margin-top:5px; */
             width:100%;
             overflow:auto;
             z-index: 999;
@@ -61,65 +63,29 @@
 
         .auto-cabdin{
             display:block;
+            /* padding:5px; */
+            /* margin-top:5px; */
             width:100%;
             height: 200px;
             overflow:scroll;
             z-index: 999;
         }
 
-        .pengguna{
-            padding: 10px;
+        .bawah{
+            margin-bottom:40px;
         }
 
-        .lds-ripple {
-        display: block;
-        margin-left: auto;
-            margin-right: auto;
-        position: relative;
-        width: 80px;
-        height: 80px;
+        @media (max-width: 1000px) {
+            .auto{
+            display:block;
+            /* border: 1px solid red; */
+            width:18%;
+            height:100%;
+            overflow:auto;
+            z-index: 999;
         }
-        .lds-ripple div {
-        position: absolute;
-        border: 4px solid #000;
-        opacity: 1;
-        border-radius: 50%;
-        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-        }
-        .lds-ripple div:nth-child(2) {
-        animation-delay: -0.5s;
-        }
-        @keyframes lds-ripple {
-        0% {
-            top: 36px;
-            left: 36px;
-            width: 0;
-            height: 0;
-            opacity: 0;
-        }
-        4.9% {
-            top: 36px;
-            left: 36px;
-            width: 0;
-            height: 0;
-            opacity: 0;
-        }
-        5% {
-            top: 36px;
-            left: 36px;
-            width: 0;
-            height: 0;
-            opacity: 1;
-        }
-        100% {
-            top: 0px;
-            left: 0px;
-            width: 72px;
-            height: 72px;
-            opacity: 0;
-        }
-    }
 
+        }
     </style>
 
     <style>
@@ -190,13 +156,6 @@
 	}
     </style>
 
-    <style type="text/css">
-        .upper { text-transform: uppercase; }
-        .lower { text-transform: lowercase; }
-        .cap   { text-transform: capitalize; }
-        .small { font-variant:   small-caps; }
-    </style>
-
 
 </head>
 
@@ -239,7 +198,7 @@
                     <div class='pull-left hidden-xs'>
                         <strong>
                             <span id='end-sidebar'>
-                            &copy; <?=date('Y')?> - Developer <strong><?=master('Aauthor')?></strong> | versi <?=master('version')?>
+                            &copy; <?=date('Y')?> - Developer <strong><?=master('dev')?></strong> | versi <?=master('version')?>
                             </span>
                         </strong>
                     </div>
@@ -255,56 +214,22 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body mt-4 text-center">
-                    <h3>Selamat Datang <br> <strong>SISY Cloud</strong></h3>
-                    <p>Developer - Tim IT Notfound Indonesia</p>
-                    <img src="<?=__img('undraw_secure_login_pdn4.svg')?>" alt="" width="200" class="bawah" ><br>
-                    <p><b>Silahkan perbaharui akun anda agar dapat menggunakan <em>SISYCloud</em>. <br> Terima Kasih</b></p>
+                    <h3>Selamat Datang <br> <strong>Portal Bidang Pembinaan SMK</strong></h3>
+                    <p>Developer - Tim IT SMK Negeri 1 Simpang Kanan</p>
+                    <img src="<?=__img('undraw_welcoming_re_x0qo.svg')?>" alt="" width="200" class="bawah" ><br>
+                    <p><b>Silahkan perbaharui akun anda agar dapat menggunakan <em>Portal Bidang PSMK</em>. <br> Terima Kasih</b></p>
                     <a href="perbaharui">
-                    <button class="btn btn-sm btn-flat btn-warning" ><i class="fas fa-sync"></i> Perbaharui akun</button>
-                    <br >
-                    <a href='keluaraja' class='btn btn-sm btn-danger btn-flat' style="margin-top:10px;"><i class="fas fa-power-off"></i> Keluar</a>
+                    <button class="btn btn-sm btn-flat btn-danger" ><i class="fas fa-sync"></i> Perbaharui akun</button>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+    
+    
 
-    <div class="modal fade" id="informasi" data-backdrop="static" role="dialog">
-    <div class='modal-dialog modal-md'>
-        <div class='modal-content'>
-            <div class='modal-header bg-white'>
-                <button class='close' data-dismiss='modal'><span aria-hidden='true'><i class='glyphicon glyphicon-remove'></i></span></button>
-                <p class='modal-title'><i class="fas fa-fw fa-info"></i> Informai Pengembang Sistem</p>
-            </div>
-            <div class="card-body table-responsive pengguna">
-                <table id='example2' class='table  table-striped '>
-                    <p>Sisy - untuk pendataan Beasiswa Anak Yatim dan Piatu pada Bidang Pembinaan Sekolah Menengah Kejuruan</p>
-                    <tr>
-                        <th>Developer</th><td>:</td><td>Dwi Satria Pangestu, A.Md.Kom (Programmer) <br> Imannudin, S.Kom (Administrasi) <br> Yasir (Monitoring) </td>
-                    </tr>
 
-                    <tr>
-                        <th>Core</th><td>:</td><td>Codeigniter Versi 3.1.13</td>
-                    </tr>
-
-                    <tr>
-                        <th>Job</th><td>:</td><td>- Tim IT Bidang PSMK Dinas Pendidikan Aceh<br> - Tim IT SMK Negeri 1 Simpang Kanan <br> - Notfound Indonesia </td>
-                    </tr>
-
-                    <tr>
-                        <th>Website</th><td>:</td><td><a href="https://notfound.id">Not Found Indonesia</a></td>
-                    </tr>
-                </table>
         
-                <div class='modal-footer'>
-                    <div class='box-tools pull-right '>
-                        <button type='button' class='btn btn-danger btn-sm pull-left' data-dismiss='modal'>Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
     <script src='<?= site_url();?>/dist/bootstrap/js/bootstrap.min.js'></script>
@@ -322,166 +247,51 @@
 	<script src='<?= site_url();?>/plugins/chartjs/dist/Chart.js'></script>
 	<script src='<?= site_url();?>/plugins/sweetalert2/dist/sweetalert2.min.js'></script>
 	<script src='<?= site_url();?>/plugins/MathJax-2.7.3/MathJax.js?config=TeX-AMS_HTML-full'></script>
-    <script src='<?= site_url();?>/plugins/tinymce/tinymce.min.js'></script>
-
-    <!-- load -->
-    <!-- <script src='<?= site_url();?>/assets/js/dbsiswa.js'></script> -->
-    <script type="text/javascript">
-    $(document).ready(function(){
-        tampil_database_siswa();   //pemanggilan fungsi tampil barang.
-         
-        $('#mydata').dataTable();
-          
-        //fungsi tampil barang
-        function tampil_database_siswa(){
-            $.ajax({
-                type  : 'ajax',
-                url  : '<?php echo base_url('admin/Database_siswa/dbsiswa')?>',
-                async : false,
-                dataType : 'json',
-                success : function(data){
-                    var html = '';
-                    var nomor=0;
-                    // var i;
-                    for(i=0; i<data.length; i++){
-                        nomor++;
-                        html += '<tr>'+
-                                '<td>'+nomor+'</td>'+
-                                '<td>'+data[i].nama+'</td>'+
-                                '<td>'+data[i].nisn+'</td>'+
-                                '<td>'+data[i].sekolah+'</td>'+
-                                '<td>'+data[i].sekolah+'</td>'+
-                                '<td>'+data[i].atasnama+'</td>'+
-                                '<td>'+data[i].no_rek+'</td>'+
-                                '<td>'+data[i].kelas+'</td>'+
-                                '<td>'+data[i].hp+'</td>'+
-                                '</tr>';
-                    }
-                    $('#show_data').html(html);
-                }
- 
-            });
-        }
- 
-    });
- 
-</script>
-    
-
-    <script>
-    $(document).ready(function() {
-        $('#example1').DataTable({
-            select: true
-        });
-        $('#example2').DataTable({
-            select: true
-        });
-        $('#example3').DataTable({
-            select: true
-        });
-    });
-    
-</script>
-
-    <script>
-    $('.dropdown-toggle').dropdown()
-    </script>
 
     <script>
     $(document).ready(function(){
         $("#provinsi").change(function (){
-            var url = "<?php echo site_url('admin/user/add_ajax_kab');?>/"+$(this).val();
+            var url = "<?php echo site_url('admin/sekolah/add_ajax_kab');?>/"+$(this).val();
             $('#kabupaten').load(url);
             return false;
         })
 
         $("#kabupaten").change(function (){
-            var url = "<?php echo site_url('admin/user/add_ajax_instansi');?>/"+$(this).val();
-            $('#instansi').load(url);
+            var url = "<?php echo site_url('admin/sekolah/add_ajax_kec');?>/"+$(this).val();
+            $('#kecamatan').load(url);
             return false;
         })
 
-        $("#kabupaten").change(function (){
-            var url = "<?php echo site_url('admin/user/add_ajax_sek');?>/"+$(this).val();
+        $("#kecamatan").change(function (){
+            var url = "<?php echo site_url('admin/sekolah/add_ajax_des');?>/"+$(this).val();
+            $('#desa').load(url);
+            return false;
+        })
+
+        $("#desa").change(function (){
+            var url = "<?php echo site_url('admin/sekolah/add_ajax_sek');?>/"+$(this).val();
             $('#sekolah').load(url);
             return false;
         })
 
         $("#sekolah").change(function (){
-            var url = "<?php echo site_url('admin/user/add_ajax_siswa');?>/"+$(this).val();
-            $('#siswa').load(url);
+            var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
+            $('#jurusan').load(url);
             return false;
         })
 
-        // $("#sekolah").change(function (){
-        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
-        //     $('#jurusan').load(url);
-        //     return false;
-        // })
-
-        // $("#sekolah").change(function (){
-        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
-        //     $('#jurusan2').load(url);
-        //     return false;
-        // })
+        $("#sekolah").change(function (){
+            var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
+            $('#jurusan2').load(url);
+            return false;
+        })
     });
 </script>
-
-
-<!-- pindah -->
-<script>
-    $(document).ready(function(){
-        $("#provinsi1").change(function (){
-            var url = "<?php echo site_url('admin/pindah/add_ajax_kab');?>/"+$(this).val();
-            $('#kabupaten1').load(url);
-            return false;
-        })
-
-        $("#kabupaten1").change(function (){
-            var url = "<?php echo site_url('admin/pindah/add_ajax_instansi');?>/"+$(this).val();
-            $('#instansi1').load(url);
-            return false;
-        })
-
-        $("#kabupaten1").change(function (){
-            var url = "<?php echo site_url('admin/pindah/add_ajax_sek');?>/"+$(this).val();
-            $('#sekolah1').load(url);
-            return fals1e;
-        })
-
-        $("#kabupaten1").change(function (){
-            var url = "<?php echo site_url('admin/pindah/add_ajax_admin');?>/"+$(this).val();
-            $('#admin1').load(url);
-            return fals1e;
-        })
-
-        $("#sekolah1").change(function (){
-            var url = "<?php echo site_url('admin/pindah/add_ajax_siswa');?>/"+$(this).val();
-            $('#siswa1').load(url);
-            return false;
-        })
-
-        // $("#sekolah").change(function (){
-        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
-        //     $('#jurusan').load(url);
-        //     return false;
-        // })
-
-        // $("#sekolah").change(function (){
-        //     var url = "<?php echo site_url('admin/sekolah/add_ajax_jur');?>/"+$(this).val();
-        //     $('#jurusan2').load(url);
-        //     return false;
-        // })
-    });
-</script>
-
-
-<!--  -->
 
 <script>
     $(document).idle({
         onIdle: function(){
-            window.location="on";                
+            window.location="off";                
         },
         idle: 10
     });
@@ -508,23 +318,22 @@
 
     <script type="text/javascript">
 		$(document).ready(function(){
-            $('#nama').on('input',function(){
+            $('#kode').on('input',function(){
                 
-                var nama=$(this).val();
+                var kode=$(this).val();
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('admin/Database_siswa/get_nama')?>",
+                    url  : "<?php echo base_url('admin/sekolah/get_sarana')?>",
                     dataType : "JSON",
-                    data : {nama: nama},
+                    data : {kode: kode},
                     cache:false,
                     success: function(data){
-                        $.each(data,function(nama, nisn, kelas, bank, atasnama, no_rek, hp){
-                            $('[name="nisn"]').val(data.nisn);
-                            $('[name="kelas"]').val(data.kelas);
-                            $('[name="nm_bank"]').val(data.bank);
-                            $('[name="atas_nama"]').val(data.atasnama);
-                            $('[name="no_rek"]').val(data.no_rek);
-                            $('[name="no_hp"]').val(data.hp);
+                        $.each(data,function(kode, nama){
+                            $('[name="nama"]').val(data.nama);
+                            // $('[name="j_anggaran"]').val(data.j_anggaran);
+                            // $('[name="sk"]').val(data.sk);
+                            // $('[name="tahun"]').val(data.tahun);
+                            // $('[name="status"]').val(data.status);
                             
                         });
                         
@@ -535,14 +344,6 @@
 
 		});
 	</script>
-
-<script type="text/javascript">
-        // In your Javascript (external .js resource or <script> tag)
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-
-    </script>
 
     
     <script>
@@ -683,6 +484,23 @@ var x = setInterval(function() {
 		);
 </script>
 
+<script>
+    $(document).ready(function() {
+        $('#example1').DataTable({
+            select: true
+        });
+        $('#example2').DataTable({
+            select: true
+        });
+        $('#example3').DataTable({
+            select: true
+        });
+    });
+    
+</script>
+
+
+
 <script type="text/javascript">
 		var url = window.location;
 		// for sidebar menu entirely but not cover treeview
@@ -739,74 +557,10 @@ function clock()
     setInterval(clock,1000);
 </script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-			$('#reset').on('input',function(){
-			
-			var email=$(this).val();
-			$.ajax({
-				type : "POST",
-				url  : "<?php echo base_url('Reset/get_reset')?>",
-				dataType : "JSON",
-				data : {email: email},
-				cache:false,
-				success: function(data){
-					$.each(data,function(email, id_admin, fullname){
-						$('[name="id_admin"]').val(data.id_admin);
-						$('[name="fullname"]').val(data.fullname);
-						// $('[name="harga"]').val(data.harga_jual);
-						// $('[name="stok"]').val(data.stok);
-						
-					});
-					
-				}
-			});
-			return false;
-		});
-
-	});
-</script>
-
-
-
-
-<script type="text/javascript">
-	$(document).ready(function(){
-			$('#siswa1').on('input',function(){
-			
-			var admin_id=$(this).val();
-			$.ajax({
-				type : "POST",
-				url  : "<?php echo base_url('admin/pindah/get_pindah')?>",
-				dataType : "JSON",
-				data : {admin_id: admin_id},
-				cache:false,
-				success: function(data){
-					$.each(data,function(admin_id, admin_input, nm_sekolah){
-						$('[name="admin_input"]').val(data.admin_input);
-						$('[name="nm_sekolah"]').val(data.nm_sekolah);
-						// $('[name="harga"]').val(data.harga_jual);
-						// $('[name="stok"]').val(data.stok);
-						
-					});
-					
-				}
-			});
-			return false;
-		});
-
-	});
-</script>
-
 
 <!-- <script>
 	window.print();
 </script> -->
 </body>
-<?php if ($this->session->userdata('status') == '0' ) { ?>
-<script>
-    $('#welcome').modal('show');
-</script>
-<?php } ?>
 
 </html>

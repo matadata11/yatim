@@ -23,11 +23,6 @@ class Database_siswa extends Admin_Controller {
         $this->load->view('backend/main', $this->vars);
     }
 
-    function dbsiswa(){
-        $data=$this->dbsiswa->get_ajax();
-        echo json_encode($data);
-    }
-
     public function destroy()
     {
         $save = $this->dbsiswa->delete();

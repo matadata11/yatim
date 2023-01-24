@@ -8,9 +8,15 @@ class M_dbsiswa extends CI_Model {
     // Mengambil data dari database
 	public function getDb()
 	{
-		$this->db->order_by('id_db', 'DESC');
+		$this->db->order_by('sekolah', 'ASC');
 		return $this->db->get($this->_table)->result_array();
 	}
+
+    public function get_ajax()
+    {
+        $hasil=$this->db->query("SELECT * FROM dbsiswa");
+        return $hasil->result();
+    }
 
     public function update($data, $id_db){
         $query = $this->db->where('id_db', $id_db);
