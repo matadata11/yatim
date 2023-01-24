@@ -94,6 +94,41 @@ class Database_siswa extends Admin_Controller {
 		}
 	}
 
+	public function update()
+    {
+        if(isset($_POST['submit'])){
+            $id_db 				= $this->input->post('id_db', TRUE);
+            $nama    			= $this->input->post('nama', TRUE);
+            $nisn    			= $this->input->post('nisn', TRUE);
+            $sekolah    		= $this->input->post('sekolah', TRUE);
+            $bank    			= $this->input->post('bank', TRUE);
+            $atasnama    		= $this->input->post('atasnama', TRUE);
+            $no_rek    			= $this->input->post('no_rek', TRUE);
+            $hp    				= $this->input->post('hp', TRUE);
+            $kelas    			= $this->input->post('kelas', TRUE);
+
+            $data = [
+                'id_db'      	=> $id_db,
+                'nama'    		=> $nama,
+                'nisn'    		=> $nisn,
+                'sekolah'    	=> $sekolah,
+                'bank'    		=> $bank,
+                'atasnama'    	=> $atasnama,
+                'no_rek'    	=> $no_rek,
+                'hp'    		=> $hp,
+                'kelas'    		=> $kelas,
+                'updated_at'    => date('Y-m-d')
+            ];
+        }
+        $save = $this->dbsiswa->update($data, $id_db);
+        if($save){
+            $this->session->set_flashdata('notif_true', 'Data Berhasil Ditambahkan.');
+        }else{
+            $this->session->set_flashdata('notif_false', 'Data Gagal Ditambahkan.');
+        }
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
     function get_nama(){
         $nama=$this->input->post('nama');
         $data=$this->dbsiswa->get_data_nama($nama);
