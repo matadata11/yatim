@@ -8,7 +8,9 @@
                 <div class='box-header with-border'>
                     <h3 class='box-title'><i class='fas fa-server side-menu-icon fa-fw'></i> Data Siswa</h3>
                     <div class='box-tools pull-right'>
-                        <button class='btn btn-sm btn-flat btn-success' data-toggle='modal' data-target='#upload'><i class='fas fa-upload'></i> Import Siswa</button>
+                        <!-- <?php if ($this->session->userdata('level') == 'Super' ) { ?>
+                        <button class='btn btn-sm btn-flat btn-success' data-toggle='modal' data-target='#import'><i class='fas fa-upload'></i> Import Siswa</button>
+                        <?php } ?> -->
                         <button class='btn btn-sm btn-flat btn-success' data-toggle='modal' data-target='#tambahposko'><i class='fa fa-plus'></i> Input Siswa</button>
                     </div>
                 </div><!-- /.box-header -->
@@ -93,13 +95,13 @@
                             <?php $no=1; foreach($siswa_super as $row): ?>
                         <tr>
                             <td><?=$no++;?></td>
-                            <td><?=$row['nama_kabupaten']?></td>
-                            <td width="0%"><?=$row['nm_sekolah']?></td>
-                            <td><?=$row['kelas']?></td>
-                            <td><a data-toggle="modal" href="#buku<?=$row['id_siswa'];?>" style="font-style:bold;"><?=$row['nm_siswa']?></a></td>
-                            <td><?=$row['nisn']?></td>
-                            <td><?=$row['atas_nama']?></td>
-                            <td><?=$row['no_rek']?></td>
+                            <td><?=$row['nama_kabupaten'];?></td>
+                            <td width="0%"><?=$row['nm_sekolah'];?></td>
+                            <td><?=$row['kelas'];?></td>
+                            <td><a data-toggle="modal" href="#buku<?=$row['id_siswa'];?>" style="font-style:bold;"><?=$row['nm_siswa'];?></a></td>
+                            <td><?=$row['nisn'];?></td>
+                            <td><?=$row['atas_nama'];?></td>
+                            <td><?=$row['no_rek'];?></td>
                             <td width="13%">
 
                                 <?php if($row['locks']  == 'Ylock' ): ?>
@@ -112,7 +114,7 @@
 
                                 <?php if($row['lock_super']  == 'Ylock' ): ?>
                                     <button class="btn btn-block btn-danger disabled">  <i class="fas fa-fw fa-lock"></i></button>
-                                    
+
                                 <?php elseif($row['lock_super'] == 'Nlock' ): ?>
                                     <!-- <a href="#locks<?=$row['id_siswa'];?>" data-bs-toggle="modal" style="color:#fff;"> <button class="btn btn-primary">  <i class="bi bi-unlock-fill"></i></button></a> -->
                                     <a href="#edit<?=$row['id_siswa'];?>" data-toggle="modal" style="color:#fff;"> <button class="btn btn-xs btn-warning" data-toggle="tooltip" data-placement="left" title="Edit Siswa">  <i class="fas fa-fw fa-edit"></i> Edit</button></a>
@@ -131,7 +133,7 @@
             </div><!-- /.box -->
         </div>
 
-        <!-- tambah posko -->
+        <!-- tambah Siswa -->
         <div class='modal fade' id='tambahposko' data-backdrop="static" role="dialog">>
             <div class='modal-dialog'>
                 <div class='modal-content'>
@@ -145,7 +147,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="first-name-column">Provinsi</label>
-                                <select name="provinsi_id" class="form-control" id="provinsi">
+                                <select name="provinsi_id"class="form-control js-example-basic-single"  style="width:100%;" id="provinsi">
                                     <option>- Select Provinsi -</option>
                                     <?php 
                                         foreach($provinsi as $prov)
@@ -155,6 +157,8 @@
                                     ?>
                                 </select>
                                 <input type="hidden" id="email-id-column" class="form-control" name="admin_input" value="<?=__session('fullname');?>" placeholder="ex. 201501015"/>
+                                <input type="hidden" id="email-id-column" class="form-control" name="admin_kab" value="<?=__session('admin');?>" placeholder="ex. 201501015"/>
+
                                 <input type="hidden" id="email-id-column" class="form-control" name="admin_id" value="<?=__session('id_admin');?>" placeholder="ex. 201501015"/>
                             </div>
                         </div>
@@ -169,24 +173,25 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="city-column">Nama Sekolah</label>
-                                <input type="text" id="city-column" class="form-control" placeholder="ex. SMK Negeri 1 Simpang Kanan" name="nm_sekolah"/>
+                                <input type="text" id="city-column" class="form-control" value="<?=__session('sekolah');?>" name="nm_sekolah" readonly required />
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
-                                <label for="country-floating">Nama Siswa</label>
-                                <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa"/>
+                                <label for="country-floating">Nama Siswa <small class="text-danger" style="font-size:8px;">Masukkan Nama yang pernah Diajukan</small></label>
+                                <input type="text" id="nama" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" required />
                             </div>
                         </div>
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">Kelas</label>
-                                <select name="kelas" id="first-name-column" class="form-control">
+                                <input type="text" name="kelas" class="form-control" placeholder="Otomatis" required readonly>
+                                <!-- <select name="kelas" id="first-name-column" class="form-control" required >
                                 <option value="">-kelas-</option>
                                 <option value="X">X</option>
                                 <option value="XI">XI</option>
                                 <option value="XII">XII</option>
-                                </select>
+                                </select> -->
                                 
                             </div>
                         </div>
@@ -194,28 +199,28 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">NISN</label>
-                                <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015"/>
+                                <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="Otomatis" required readonly/>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Nama Bank</label>
-                                <input type="text" id="email-id-column" class="form-control" name="nm_bank" placeholder="ex. Bank ACeh Syariah" />
+                                <input type="text" id="email-id-column" class="form-control" name="nm_bank" placeholder="Otomatis" required readonly />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
-                                <input type="text" id="email-id-column" class="form-control"   name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU"/>
+                                <input type="text" id="email-id-column" class="form-control"   name="atas_nama" placeholder="Otomatis" required readonly />
                             </div>
                         </div>
 
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">No Rekening</label>
-                                <input type="text" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********"/>
+                                <input type="number" id="email-id-column" class="form-control" name="no_rek" pplaceholder="Otomatis" required readonly minlength="0" maxlength="14" />
                                 
                             </div>
                         </div>
@@ -223,7 +228,7 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group">
                                 <label for="company-column">No Hp Siswa</label>
-                                <input type="text" id="email-id-column" class="form-control"  value="08" name="no_hp" placeholder="ex. 08">
+                                <input type="text" id="email-id-column" class="form-control"  value="08" name="no_hp" placeholder="Otomatis" required readonly>
                                 
                             </div>
                         </div>
@@ -232,7 +237,7 @@
                         <div class="col-md-12 col-12">
                             <div class="form-group">
                                 <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
-                                <input type="file" class="form-control" name="photo">
+                                <input type="file" class="form-control" name="photo" required >
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-end text-center">
@@ -732,52 +737,55 @@
                 </div>
             </div>
         </div>
-
-        <!-- Import Data Menggunakan Excel -->
-<div class="modal fade" id="upload" data-backdrop="static" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Import Data GTK</h5>
-            </div>
-            <div class="modal-body">
-                <div class="my-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="text-center">Silahkan download template data berikut</p>
-                            <a href="<?= site_url('assets/excel/format_inport_siswa.xlsx') ?>" download class="btn btn-block btn-primary"><i class="fas fa-download"></i> Download Format</a><br>
-                        </div>
-                    </div>
-                </div>
-                <form method="post" action="<?= site_url('import-inputan') ?>" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label>Pilih File Excel</label>
-                        <input type="hidden" class="form-control" name="admin_input" value="<?= $this->session->userdata('fullname'); ?>">
-                        <input type="file" class="form-control" name="dataexcel">
-                    </div>
-
-                    <div class="form-group text-center">
-                        <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check"></i> Import</button>
-                        <button data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Tutup</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
         <?php endforeach; ?>
 
+        <!-- Import Data Menggunakan Excel -->
+        <div class='modal fade' id='import' data-backdrop="static" role="dialog">>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Import Data Siswa</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="my-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="text-center">Silahkan download template data berikut</p>
+                                    <a href="<?= site_url('assets/excel/format_inport_siswa.xlsx') ?>" download class="btn btn-block btn-primary"><i class="fas fa-download"></i> Download Format</a><br>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="post" action="<?= site_url('import-inputan') ?>" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label>Pilih File Excel</label>
+                                <input type="hidden" class="form-control" name="admin_id" value="<?= $this->session->userdata('id_admin'); ?>">
+                                <input type="hidden" class="form-control" name="admin_input" value="<?= $this->session->userdata('fullname'); ?>">
+                                <input type="file" class="form-control" name="dataexcel">
+                            </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check"></i> Import</button>
+                                <button data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Tutup</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
         <!-- pindah -->
-        <?php foreach($siswa_admin as $row): ?>
+        <?php foreach($siswa_super as $row): ?>
         <div class="modal fade" id="pindah<?=$row['id_siswa'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                    <form class="form" method="post" action="<?=site_url('edit-inputan')?>">
+                    <form class="form" method="post" action="<?=site_url('pindah-data')?>">
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="first-name-column">Provinsi</label>
+                                        <input type="hidden" name="id_siswa" value="<?=$row['id_siswa'];?>">
                                         <select name="provinsi_id" class="form-control" id="provinsi1">
                                             <option value="<?=$row['provinsi_id'];?>"><?=$row['nama'];?></option>
                                             <?php 
@@ -797,11 +805,11 @@
                                     </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label class="font-size-h6 font-weight-bolder text-dark">Sekolah <span class="text-danger">*</span></label>
-                                        <select name="nm_sekolah"  class="form-control" style="width:100%;" id="sekolah1">
+                                        <select name=""  class="form-control" style="width:100%;" id="sekolah1">
                                             <option>Select Sekolah</option>
                                         </select>
                                     </div>
@@ -809,62 +817,26 @@
 
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label class="font-size-h6 font-weight-bolder text-dark">Sekolah <span class="text-danger">*</span></label>
-                                        <select name="admin_input"  class="form-control" style="width:100%;" id="siswa1">
+                                        <label class="font-size-h6 font-weight-bolder text-dark">Admin <span class="text-danger">*</span></label>
+                                        <select name="admin_id"  class="form-control" style="width:100%;" id="siswa1">
                                             <option>Select Admin</option>
                                         </select>
                                     </div>
                                 </div>
                                 
-
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="country-floating">Nama Siswa</label>
-                                        <input type="hidden" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="id_siswa" value="<?=$row['id_siswa'];?>"/>
-                                        <input type="text" id="city-column" class="form-control" placeholder="ex. Dwi Satria" name="nm_siswa" value="<?=$row['nm_siswa'];?>"/>
+                                        <!-- <label>Admin Input <span class="text-danger">*</span></label> -->
+                                        <input type="text" class="form-control" name="admin_input" autocomplete="off" readonly required="">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="company-column">Kelas</label>
-                                        <select name="kelas" id="first-name-column" class="form-control">
-                                        <option value="<?=$row['kelas'];?>"><?=$row['kelas'];?></option>
-                                        <option value="X">X</option>
-                                        <option value="XI">XI</option>
-                                        <option value="XII">XII</option>
-                                        </select>
-                                        
+                                        <!-- <label>Admin Input <span class="text-danger">*</span></label> -->
+                                        <input type="text" class="form-control" name="nm_sekolah" autocomplete="off" readonly required="">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-column">NISN</label>
-                                        <input type="number" id="email-id-column" class="form-control" name="nisn" placeholder="ex. 201501015" value="<?=$row['nisn'];?>"/>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-column">Atas Nama <small><font color="red">*</font> Huruf Kapital</small></label>
-                                        <input type="text" id="email-id-column" class="form-control" name="atas_nama" placeholder="ex. DWI SATRIA PANGESTU" value="<?=$row['atas_nama'];?>"/>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="company-column">No Rekening</label>
-                                        <input type="text" id="email-id-column" class="form-control" name="no_rek" placeholder="ex. 130**********" value="<?=$row['no_rek'];?>"/>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <!-- <div class="col-md-12 col-12">
-                                    <div class="form-group">
-                                        <label for="email-id-column">Buku Rekening <small><font color="red">*</font> Max 2 Mb</small></label>
-                                        <input type="file" id="email-id-column" class="form-control" name="photo" placeholder="No Rekening"/>
-                                    </div>
-                                </div> -->
                                 <div class="col-12 d-flex justify-content-end">
                                     <button type="submit" name="submit" class="btn btn-primary me-1 mb-1">
                                         Ubah Data

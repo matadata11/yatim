@@ -49,6 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+$route['database_siswa']                = 'admin/Database_siswa';
+$route['updatabase_siswa']              = 'admin/Database_siswa/update';
+$route['hapus_db/(:num)']               = 'admin/Database_siswa/destroy';
+$route['import-dbsiswa']                = 'admin/Database_siswa/import_excel';
+
+
+$route['cari-email']                	= 'Reset/hasil';
+$route['reset-akun']                	= 'Reset/reset';
+
+$route['berkas']                 		= 'admin/berkas';
+$route['add-berkas']                    = 'admin/berkas/store';
+$route['hapus-berkas/(:num)']           = 'admin/berkas/destroy';
+
 $route['Patch']                         = 'admin/Master_patch';
 $route['patching']             	        = 'admin/Master_patch/patchsystem';
 

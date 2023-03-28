@@ -48,7 +48,7 @@ class User extends Admin_Controller {
     	$query = $this->db->get_where('dt_siswa',array('admin_id'=>$id_admin));
     	$data = "<option value=''> - Pilih Siswa - </option>";
     	foreach ($query->result() as $value) {
-        	$data .= "<option value='".$value->id_siswa."'>".$value->nm_siswa."</option>";
+        	$data .= "<option value='".$value->fullname."'>".$value->fullname."</option>";
     	}
     	echo $data;
 	}

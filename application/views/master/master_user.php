@@ -165,6 +165,7 @@
                                 <select name="level" id="level" class="form-control">
                                     <option value="">-pilih-</option>
                                     <option value="Super">Super</option>
+                                    <option value="HD">HD</option>
                                     <option value="Admin">Admin</option>
                                 </select>
                             </div>

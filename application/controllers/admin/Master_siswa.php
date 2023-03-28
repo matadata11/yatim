@@ -53,15 +53,13 @@ class Master_siswa extends Admin_Controller {
     }
 
 
-	
-
-
     // tambah siswa
     public function store()
     {
         if(isset($_POST['submit'])){
-            $admin_id            	= $this->input->post('admin_id', TRUE);
+            $admin_kab            	= $this->input->post('admin_kab', TRUE);
             $admin_input            = $this->input->post('admin_input', TRUE);
+            $admin_id            	= $this->input->post('admin_id', TRUE);
             $provinsi_id            = $this->input->post('provinsi_id', TRUE);
             $kabupaten_id           = $this->input->post('kabupaten_id', TRUE);
             $nm_sekolah             = $this->input->post('nm_sekolah', TRUE);
@@ -103,8 +101,9 @@ class Master_siswa extends Admin_Controller {
             }
 
             $data = [
-                'admin_id'       	=> $admin_id,
+                'admin_kab'       	=> $admin_kab,
                 'admin_input'       => $admin_input,
+                'admin_id'       	=> $admin_id,
                 'provinsi_id'       => $provinsi_id,
                 'kabupaten_id'      => $kabupaten_id,
                 'nm_sekolah'        => $nm_sekolah,
@@ -123,11 +122,18 @@ class Master_siswa extends Admin_Controller {
                 'created_at'        => date('Y-m-d')
             ];
         }
-        $save = $this->siswa->entry($data);
+        $save = $this->db->get_where('dt_siswa', ['nisn' => $nisn])->row_array();
         if($save){
-            $this->session->set_flashdata('notif_true', 'Data Berhasil Ditambahkan.');
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger alert-dismissible"id="notifications"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p> Hanya Boleh 1 NISN</p></div>');
         }else{
-            $this->session->set_flashdata('notif_false', 'Data Gagal Ditambahkan.');
+            $flashdata  = $this->siswa->entry($data);
+            
+        }
+        if($flashdata){
+            $this->session->set_flashdata('msg', 'Terima Kasih');
+            $this->session->set_flashdata('audio', site_url('public/audio/terimakasih.mp3'));
+            
         }
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -238,6 +244,7 @@ class Master_siswa extends Admin_Controller {
     public function import_excel()
 	{
 		$id_siswa    				= $this->input->post('id_siswa', TRUE);
+		$admin_kab    				= $this->input->post('admin_kab', TRUE);
 		$admin_input    			= $this->input->post('admin_input', TRUE);
 
 		include APPPATH . 'third_party/PHPExcel/PHPExcel.php';
@@ -263,6 +270,7 @@ class Master_siswa extends Admin_Controller {
 				if ($numrow > 1) {
 					array_push($data, array(
 						'id_siswa'   			=> $id_siswa,
+						'admin_kab'   			=> $admin_kab,
 						'admin_input'   		=> $admin_input,
 						'nm_siswa'				=> $row['A'],
 						'nisn'			        => $row['B'],
@@ -274,7 +282,9 @@ class Master_siswa extends Admin_Controller {
 						'no_rek'			    => $row['H'],
 						'no_hp'					=> $row['I'],
 						'kelas'					=> $row['J'],
-                        'locks'                  => 'Nlock',
+                        'locks'                 => 'Nlock',
+                        'lock_admin'            => 'Nlock',
+                        'lock_super'            => 'Nlock',
 						'nominal'       		=> 600000,
 						'created_at'    		=> date('Y-m-d H:m:s')
 					));

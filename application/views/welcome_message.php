@@ -21,23 +21,28 @@
                     <div class="auth-logo" style="margin-top:1rem;">
                         <a href="<?=site_url('/');?>"><img src="<?=__img('logo/sisy.png');?>" alt="Logo"></a>
                     </div>
+                    
+
                     <h1 class="auth-title">Sistem Informasi Siswa Yatim</h1>
                     <p class="auth-subtitle mb-2">Masuk dengan akun aktif anda.</p>
 
                     <form method="post" action="<?=site_url('checkdulu')?>">
                         <div class="form-group position-relative has-icon-left mb-2">
-                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Username">
+                            <input type="text" name="email" class="form-control form-control-lg" placeholder="Username" autocomplete="off">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-3">
-                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Password">
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" autocomplete="off">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
 
+                        <div class="text-danger">
+                        <?php echo $this->session->flashdata('notif_false'); ?>
+                        </div>
                         <!-- <div class="form-group position-relative has-icon-left mb-3">
                             <input type="password" class="form-control form-control-lg" placeholder="Password">
                             <select name="tahun" id="tahun" class="form-control form-control-lg">
@@ -61,13 +66,13 @@
                     </form>
                     <div class="text-center mt-4 text-lg fs-6" style="margin-bottom:-20px;">
                         <p><a class="font-bold" data-bs-toggle="modal" href="#reset">Reset Password?</a>.</p>
-                        <p>Dikembangkan Oleh <a href="https://notfound.id">Not Found Indonesia</a> <br> Suport <a href="https://matadata.tech">Matadata Technologi</a></p>
+                        <p>Dikembangkan Oleh <a href="https://notfound.id">Notfound Indonesia</a> <br> Suport <a href="https://matadata.tech">Matadata Technologi</a></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-                
+
                 </div>
             </div>
         </div>
@@ -86,21 +91,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form">
-                    <div class="row">
-                        <div class="col-md-12 col-12">
-                            <div class="form-group">
-                                <label for="email-id-column" class="mb-2">Email <small><font color="red">*</font> Email yang terdaftar dan aktif</small></label>
-                                <input type="text" id="email-id-column" class="form-control" name="photo" placeholder="admin@admin.com"/>
-                            </div>
-                        </div>
-                        <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1 mb-1">
-                                Reset Akun
-                            </button>
-                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">
-                                Clear
-                            </button>
+                <form class="form form-vertical" method="post" action="<?php echo base_url('cari-email') ?>">
+                    <div class='col-md-12'>
+                        <div class='box box-solid'>
+                            <div class='box-body'>
+                                <div class='col-sm-12'>
+                                    <div class='form-group'>
+                                        <label for="first-name-vertical">Email <small><font color="red">*</font> Masukkan Email yang terdaftar </small></label>
+                                        <input type="text" id="first-name-vertical" class="form-control" name="email" autocomplete="off" placeholder="ex. admin@admin.com" />
+                                    </div>
+                                </div>
+                                
+                                <!-- /.box-body -->
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <!-- <button type="submit" class="btn btn-block btn-primary me-1 mb-1" >
+                                            <i class="bi bi-search"></i> Verifikasi
+                                        </button> <br> -->
+                                        <button type="submit" class="btn btn-block btn-primary me-1 mb-1" >
+                                            Reset
+                                        </button>
+                                    </div>
+                                </div>
+                            </div><!-- /.box -->
                         </div>
                     </div>
                 </form>

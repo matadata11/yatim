@@ -71,6 +71,55 @@
             padding: 10px;
         }
 
+        .lds-ripple {
+        display: block;
+        margin-left: auto;
+            margin-right: auto;
+        position: relative;
+        width: 80px;
+        height: 80px;
+        }
+        .lds-ripple div {
+        position: absolute;
+        border: 4px solid #000;
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+        .lds-ripple div:nth-child(2) {
+        animation-delay: -0.5s;
+        }
+        @keyframes lds-ripple {
+        0% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+        4.9% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+        5% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+        100% {
+            top: 0px;
+            left: 0px;
+            width: 72px;
+            height: 72px;
+            opacity: 0;
+        }
+    }
+
     </style>
 
     <style>
@@ -409,22 +458,23 @@
 
     <script type="text/javascript">
 		$(document).ready(function(){
-            $('#kode').on('input',function(){
+            $('#nama').on('input',function(){
                 
-                var kode=$(this).val();
+                var nama=$(this).val();
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('admin/sekolah/get_sarana')?>",
+                    url  : "<?php echo base_url('admin/Database_siswa/get_nama')?>",
                     dataType : "JSON",
-                    data : {kode: kode},
+                    data : {nama: nama},
                     cache:false,
                     success: function(data){
-                        $.each(data,function(kode, nama){
-                            $('[name="nama"]').val(data.nama);
-                            // $('[name="j_anggaran"]').val(data.j_anggaran);
-                            // $('[name="sk"]').val(data.sk);
-                            // $('[name="tahun"]').val(data.tahun);
-                            // $('[name="status"]').val(data.status);
+                        $.each(data,function(nama, nisn, kelas, bank, atasnama, no_rek, hp){
+                            $('[name="nisn"]').val(data.nisn);
+                            $('[name="kelas"]').val(data.kelas);
+                            $('[name="nm_bank"]').val(data.bank);
+                            $('[name="atas_nama"]').val(data.atasnama);
+                            $('[name="no_rek"]').val(data.no_rek);
+                            $('[name="no_hp"]').val(data.hp);
                             
                         });
                         
@@ -641,19 +691,19 @@ function clock()
 
 <script type="text/javascript">
 	$(document).ready(function(){
-			$('#instansi1').on('input',function(){
+			$('#reset').on('input',function(){
 			
-			var instansi=$(this).val();
+			var email=$(this).val();
 			$.ajax({
 				type : "POST",
-				url  : "<?php echo base_url('admin/Instansi/get_instansi')?>",
+				url  : "<?php echo base_url('Reset/get_reset')?>",
 				dataType : "JSON",
-				data : {instansi: instansi},
+				data : {email: email},
 				cache:false,
 				success: function(data){
-					$.each(data,function(instansi, lat_kantor, long_kantor){
-						$('[name="lat_kantor"]').val(data.lat_kantor);
-						$('[name="long_kantor"]').val(data.long_kantor);
+					$.each(data,function(email, id_admin, fullname){
+						$('[name="id_admin"]').val(data.id_admin);
+						$('[name="fullname"]').val(data.fullname);
 						// $('[name="harga"]').val(data.harga_jual);
 						// $('[name="stok"]').val(data.stok);
 						
@@ -672,19 +722,19 @@ function clock()
 
 <script type="text/javascript">
 	$(document).ready(function(){
-			$('#instansi').on('input',function(){
+			$('#siswa1').on('input',function(){
 			
-			var instansi=$(this).val();
+			var admin_id=$(this).val();
 			$.ajax({
 				type : "POST",
-				url  : "<?php echo base_url('admin/Instansi/get_instansi')?>",
+				url  : "<?php echo base_url('admin/pindah/get_pindah')?>",
 				dataType : "JSON",
-				data : {instansi: instansi},
+				data : {admin_id: admin_id},
 				cache:false,
 				success: function(data){
-					$.each(data,function(instansi, lat_kantor, long_kantor){
-						$('[name="lat_kantor"]').val(data.lat_kantor);
-						$('[name="long_kantor"]').val(data.long_kantor);
+					$.each(data,function(admin_id, admin_input, nm_sekolah){
+						$('[name="admin_input"]').val(data.admin_input);
+						$('[name="nm_sekolah"]').val(data.nm_sekolah);
 						// $('[name="harga"]').val(data.harga_jual);
 						// $('[name="stok"]').val(data.stok);
 						
@@ -697,6 +747,8 @@ function clock()
 
 	});
 </script>
+
+
 <!-- <script>
 	window.print();
 </script> -->

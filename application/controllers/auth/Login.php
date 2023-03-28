@@ -24,12 +24,14 @@ class Login extends CI_Controller {
 					if(password_verify($password, $account['password'])){
 						$data = [
 							'id_admin'	        => $account['id_admin'],
+							'admin'	        	=> $account['admin'],
 							'fullname'	        => $account['fullname'],
 							'email'	    		=> $account['email'],
 							'status'	       	=> $account['status'],
 							'level'	        	=> $account['level'],
 							'kabupaten_id'	    => $account['kabupaten_id'],
 							'provinsi_id'	    => $account['provinsi_id'],
+							'sekolah'	    => $account['sekolah'],
 							'login'		        => 'OK',
 						];
 						$this->session->set_userdata($data);

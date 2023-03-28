@@ -12,9 +12,9 @@ class M_siswa extends CI_Model {
         $this->db->select('*');
         $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id_provinsi = dt_siswa.provinsi_id');
         $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id_kabupaten = dt_siswa.kabupaten_id');
-            // $this->db->where('status', 'null');
-            $this->db->where('locks', 'Ylock');
-            $this->db->where('lock_admin', 'Ylock');
+            // // $this->db->where('status', 'null');
+            // $this->db->where('locks', 'Ylock');
+            // $this->db->where('lock_admin', 'Ylock');
         $this->db->order_by('id_siswa', 'DESC');
         return $this->db->get($this->_table)->result_array();
     }
@@ -22,6 +22,7 @@ class M_siswa extends CI_Model {
     public function getSiswaAdmin()
     {
         $this->db->select('*');
+        $this->db->where('admin_kab', $this->session->userdata('fullname'));
         $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id_provinsi = dt_siswa.provinsi_id');
         $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id_kabupaten = dt_siswa.kabupaten_id');
             // $this->db->where('status', 'null');
@@ -117,11 +118,16 @@ class M_siswa extends CI_Model {
     }
 
     // Menghapus data dari database
-	public function delete()
-	{
-		$key = $this->uri->segment(2);
-		return $this->db->delete($this->_table,['id_siswa' => $key]);
-	}
+    public function delete()
+    {
+        $key = $this->uri->segment(2);
+        $this->db->where('id_siswa',$key);
+        $query = $this->db->get('dt_siswa');
+        $row = $query->row();
+        
+        unlink("./assets/images/buku/$row->photo_buku");
+        return $this->db->delete($this->_table, ['id_siswa' => $key]);
+    }
 
     // cari data
     public function cariOrang()
@@ -134,6 +140,22 @@ class M_siswa extends CI_Model {
 		$this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id_kabupaten = dt_siswa.kabupaten_id');
         return $this->db->get($this->_table)->result();
     }
+
+    function get_data_pindah($admin_id){
+		$hsl=$this->db->query("SELECT * FROM dt_siswa WHERE admin_id='$admin_id'");
+		if($hsl->num_rows()>0){
+			foreach ($hsl->result() as $data) {
+				$hasil=array(
+					'admin_id' 			=> $data->admin_id,
+					'admin_input' 			=> $data->admin_input,
+					'nm_sekolah' 			=> $data->nm_sekolah,
+					// 'harga_jual'	=> $data->harga_jual,
+					// 'stok' 			=> $data->stok,
+				);
+			}
+		}
+		return $hasil;
+	}
 
 }
 

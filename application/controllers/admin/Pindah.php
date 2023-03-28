@@ -1,9 +1,9 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pindah extends Admin_Controller {
 
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -25,6 +25,12 @@ class Pindah extends Admin_Controller {
         $this->vars['title']    = 'Form Pindah';
         $this->vars['content']  = 'master/master_pindah';
         $this->load->view('backend/main', $this->vars);
+    }
+
+	function get_pindah(){
+        $admin_id=$this->input->post('admin_id');
+		$data=$this->siswa->get_data_pindah($admin_id);
+		echo json_encode($data);
     }
 
     function add_ajax_kab($id_prov)
@@ -73,7 +79,7 @@ class Pindah extends Admin_Controller {
     	$query = $this->db->get_where('dt_siswa',array('admin_id'=>$id_admin));
     	$data = "<option value=''> - Pilih Admin - </option>";
     	foreach ($query->result() as $value) {
-        	$data .= "<option value='".$value->admin_input."'>".$value->admin_input."</option>";
+        	$data .= "<option value='".$value->admin_id."'>".$value->admin_input."</option>";
     	}
     	echo $data;
 	}
@@ -84,20 +90,27 @@ class Pindah extends Admin_Controller {
 		$this->form_validation->set_rules('provinsi_id', 'null', 'required');
 		$this->form_validation->set_rules('kabupaten_id', 'null', 'required');
 		$this->form_validation->set_rules('nm_sekolah', 'null', 'required');
+		$this->form_validation->set_rules('admin_id', 'null', 'required');
+		$this->form_validation->set_rules('admin_input', 'null', 'required');
 		
 
 		if ($this->form_validation->run() == TRUE) {
 			if (isset($_POST['submit'])) {
 				$id_siswa 	            = $this->input->post('id_siswa', TRUE);
                 $provinsi_id            = $this->input->post('provinsi_id', TRUE);
-                $kabupaten_id            = $this->input->post('kabupaten_id', TRUE);
-                $nm_sekolah            = $this->input->post('nm_sekolah', TRUE);
+                $kabupaten_id           = $this->input->post('kabupaten_id', TRUE);
+                $nm_sekolah            	= $this->input->post('nm_sekolah', TRUE);
+                $admin_id            	= $this->input->post('admin_id', TRUE);
+                $admin_input           	= $this->input->post('admin_input', TRUE);
 
 				$data = [
 					'id_siswa'	        => $id_siswa,
 					'provinsi_id'       => $provinsi_id,
                     'kabupaten_id'      => $kabupaten_id,
-                    'nm_sekolah'      		=> $nm_sekolah
+                    'nm_sekolah'      	=> $nm_sekolah,
+                    'admin_id'      	=> $admin_id,
+                    'admin_input'      	=> $admin_input,
+					'pindah'			=> date('Y-m-d')
 				];
 			}
 			$notif = $this->siswa->update($data, $id_siswa);

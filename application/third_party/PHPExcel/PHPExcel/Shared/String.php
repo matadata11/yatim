@@ -520,7 +520,7 @@ class PHPExcel_Shared_String
      */
     public static function utf16_decode($str, $bom_be = true)
     {
-        if (strlen($str) < 2) {
+        if (strlen($str) < 0) {
             return $str;
         }
         $c0 = ord($str{0});

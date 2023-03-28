@@ -72,7 +72,13 @@
                                     ?>
                                 </div>
                                 <div class='pull-right'>
+                                <?php if ($this->session->userdata('level') == 'Super' OR $this->session->userdata('level') == 'HD' OR $this->session->userdata('level') == 'Ops' ) { ?>
                                     <a href='keluaraja' class='btn btn-sm btn-default btn-flat'><i class='fa fa-sign-out'></i> Keluar</a>
+                                    <?php } ?>
+
+                                    <?php if ($this->session->userdata('level') == 'Admin') { ?>
+                                    <a href='keluaraja' class='btn btn-sm btn-default btn-flat'><i class='fa fa-sign-out'></i> Keluar</a>
+                                    <?php } ?>
                                 </div>
                             </li>
                         </ul>
