@@ -190,6 +190,13 @@
 	}
     </style>
 
+    <style type="text/css">
+        .upper { text-transform: uppercase; }
+        .lower { text-transform: lowercase; }
+        .cap   { text-transform: capitalize; }
+        .small { font-variant:   small-caps; }
+    </style>
+
 
 </head>
 
@@ -316,6 +323,49 @@
 	<script src='<?= site_url();?>/plugins/sweetalert2/dist/sweetalert2.min.js'></script>
 	<script src='<?= site_url();?>/plugins/MathJax-2.7.3/MathJax.js?config=TeX-AMS_HTML-full'></script>
     <script src='<?= site_url();?>/plugins/tinymce/tinymce.min.js'></script>
+
+    <!-- load -->
+    <!-- <script src='<?= site_url();?>/assets/js/dbsiswa.js'></script> -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+        tampil_database_siswa();   //pemanggilan fungsi tampil barang.
+         
+        $('#mydata').dataTable();
+          
+        //fungsi tampil barang
+        function tampil_database_siswa(){
+            $.ajax({
+                type  : 'ajax',
+                url  : '<?php echo base_url('admin/Database_siswa/dbsiswa')?>',
+                async : false,
+                dataType : 'json',
+                success : function(data){
+                    var html = '';
+                    var nomor=0;
+                    // var i;
+                    for(i=0; i<data.length; i++){
+                        nomor++;
+                        html += '<tr>'+
+                                '<td>'+nomor+'</td>'+
+                                '<td>'+data[i].nama+'</td>'+
+                                '<td>'+data[i].nisn+'</td>'+
+                                '<td>'+data[i].sekolah+'</td>'+
+                                '<td>'+data[i].sekolah+'</td>'+
+                                '<td>'+data[i].atasnama+'</td>'+
+                                '<td>'+data[i].no_rek+'</td>'+
+                                '<td>'+data[i].kelas+'</td>'+
+                                '<td>'+data[i].hp+'</td>'+
+                                '</tr>';
+                    }
+                    $('#show_data').html(html);
+                }
+ 
+            });
+        }
+ 
+    });
+ 
+</script>
     
 
     <script>

@@ -12,6 +12,15 @@ class M_dbsiswa extends CI_Model {
 		return $this->db->get($this->_table)->result_array();
 	}
 
+<<<<<<< HEAD
+=======
+    public function get_ajax()
+    {
+        $hasil=$this->db->query("SELECT * FROM dbsiswa");
+        return $hasil->result();
+    }
+
+>>>>>>> caa87468d03a6d53c4274490b323ef3bba4b0426
     public function update($data, $id_db){
         $query = $this->db->where('id_db', $id_db);
         $query = $this->db->update($this->_table, $data);

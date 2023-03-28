@@ -3,6 +3,7 @@ RewriteCond $1 !^(index\.php|resources|robots\.txt)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+<<<<<<< HEAD
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “alt-php73” package as the default “PHP” programming language.
@@ -10,3 +11,5 @@ RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
   AddHandler application/x-httpd-alt-php73 .php .php7 .phtml
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
+=======
+>>>>>>> caa87468d03a6d53c4274490b323ef3bba4b0426
